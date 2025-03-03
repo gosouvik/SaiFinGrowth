@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="CallLogEmployee_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Employees" View="Employee_DetailView" />
+      </Items>
+    </DetailView>
+    <DetailView Id="InvoiceDetail_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="InvoiceDetail">
+              <LayoutGroup Id="InvoiceDetail_col2">
+                <LayoutItem Id="SGSTRate" ViewItem="SGSTRate" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Masters">
+        <Items Id="Items">
+          <Item Id="Driver_ListView" ViewId="Driver_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

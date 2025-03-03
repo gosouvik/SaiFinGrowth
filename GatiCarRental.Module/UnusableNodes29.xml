@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Category_Policies_ListView" Caption="LIC Policy" />
+    <ListView Id="SubCategory_Policies_ListView" Caption="LIC Policy" />
+    <DetailView Id="Employee_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Employee">
+              <LayoutGroup Id="Employee_col1">
+                <LayoutItem Id="City" Removed="True" />
+                <LayoutItem Id="LastName" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Employee_col2">
+                <LayoutItem Id="LastName" ViewItem="LastName" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="InvoiceDetail_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="InvoiceDetail">
+              <LayoutGroup Id="InvoiceDetail_col2">
+                <LayoutItem Id="SGSTRate" ViewItem="SGSTRate" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Policy_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Category" Removed="True" />
+        <ColumnInfo Id="SubCategory" Removed="True" />
+      </Columns>
+    </ListView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Masters">
+        <Items Id="Items">
+          <Item Id="Driver_ListView" ViewId="Driver_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="CallLogCustomer_ListView" Removed="True" />
+          <Item Id="CallLogLead_ListView" Removed="True" />
+          <Item Id="Plan_ListView" Removed="True" />
+          <Item Id="Policy_ListView" Removed="True" />
+          <Item Id="SubCategory_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

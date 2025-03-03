@@ -1,0 +1,2030 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="SaiFinGrowth">
+  <ActionDesign>
+    <Actions>
+      <Action Id="DryInvoicePrintAction" ImageName="Print" />
+      <Action Id="EmailInvoiceAction" ImageName="Glyph_Mail" />
+      <Action Id="PrintAdvanceSlip" ImageName="Print" QuickAccess="True" />
+      <Action Id="PrintInvoiceAction" ImageName="Print" QuickAccess="True" SelectionDependencyType="Independent" />
+      <Action Id="PrintReceipt" QuickAccess="True" ImageName="Print" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="GatiCarRental.Module.BusinessObjects.BookingOrder">
+      <OwnMembers>
+        <Member Name="DropOffDateTime" Caption="Drop Off Date" />
+      </OwnMembers>
+    </Class>
+    <Class Name="GatiCarRental.Module.BusinessObjects.InvoiceDetail" IsVisibleInReports="False" IsVisibleInDashboards="False" />
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="DashBoard" Index="0" IsNewNode="True">
+        <Items IsNewNode="True">
+          <DashboardNavigationItem Id="DashAssociates" Caption="Associates" DashboardTitle="Associate Dasboard" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Entries" Caption="Entries" Index="1" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="BookingOrder_ListView" ViewId="BookingOrder_ListView" ObjectKey="" ImageName="BO_Order" Index="0" IsNewNode="True" />
+          <Item Id="DutySlip_ListView" ViewId="DutySlip_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+          <Item Id="Invoice_ListView" ViewId="Invoice_ListView" ObjectKey="" Index="2" IsNewNode="True" />
+          <Item Id="DryInvoice_ListView" ViewId="DryInvoice_ListView" ObjectKey="" Index="3" IsNewNode="True" />
+          <Item Id="CallLogCustomer_ListView" ViewId="CallLogCustomer_ListView" ObjectKey="" Index="4" IsNewNode="True" />
+          <Item Id="CallLogEmployee_ListView" ViewId="CallLogEmployee_ListView" ObjectKey="" Caption="Call Log Employee/Agents" Index="5" IsNewNode="True" />
+          <Item Id="CallLogLead_ListView" ViewId="CallLogLead_ListView" ObjectKey="" Index="6" ImageName="Glyph_Phone" IsNewNode="True" />
+          <Item Id="Discount_ListView" ViewId="Discount_ListView" ObjectKey="" Index="7" IsNewNode="True" />
+          <Item Id="Policy_ListView" ViewId="Policy_ListView" ObjectKey="" Caption="LIC Policy" Index="8" IsNewNode="True" />
+          <Item Id="Receipt_ListView" ViewId="Receipt_ListView" ObjectKey="" Index="9" Caption="LIC Payment Receipt" Visible="False" IsNewNode="True" />
+          <Item Id="Employee_MyTask" ViewId="Employee_MyTask_ListView" Caption="My Task" ImageName="BO_Task" IsNewNode="True" />
+          <Item Id="GICTasks" ViewId="GIC Tasks" IsNewNode="True" />
+          <Item Id="LIC Tasks (LI)" ViewId="LICTasks" IsNewNode="True" />
+          <Item Id="LICApplication_ListView" ViewId="LICApplication_ListView" ObjectKey="" Caption="LIC Form Application" IsNewNode="True" />
+          <Item Id="LICApplications" ViewId="LICApplications" Caption="LIC Application (LI)" IsNewNode="True" />
+          <Item Id="LICPolicies" ViewId="LICPolicies" Caption="LIC Policy (LI)" IsNewNode="True" />
+          <Item Id="Loan Tasks" ViewId="LoanTasks" IsNewNode="True" />
+          <Item Id="Loan_ListView" ViewId="Loan_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="LoanApplications" ViewId="LoanApplication " Caption="Loan Application " IsNewNode="True" />
+          <Item Id="Mediclaim_ListView" ViewId="Mediclaim_ListView" ObjectKey="" Caption="Mediclaim Application" IsNewNode="True" />
+          <Item Id="MediclaimApplications" ViewId="MediclaimApplications" IsNewNode="True" />
+          <Item Id="MediclaimPolicies" ViewId="MediclaimPolicies" IsNewNode="True" />
+          <Item Id="MediclaimPolicy_ListView" ViewId="MediclaimPolicy_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="MutualFundTasks" ViewId="MutualFundTasks" IsNewNode="True" />
+          <Item Id="MyCallLogCustomer" ViewId="MyCallLogCustomer" IsNewNode="True" />
+          <Item Id="MyCallLogEmployee" ViewId="MyCallLogEmployee_ListView" IsNewNode="True" />
+          <Item Id="MyCallLogLead" ViewId="MyCallLogLead_ListView" IsNewNode="True" />
+          <Item Id="MyLICApplication" Caption="My LIC Application" ViewId="MyLICApplication" IsNewNode="True" />
+          <Item Id="MyLicPolicies" ViewId="MyLICPolices" IsNewNode="True" />
+          <Item Id="MyLoanApplications" ViewId="MyLoanApplications" IsNewNode="True" />
+          <Item Id="MyMediclaimApplication" Caption="My Mediclaim Application" ViewId="MyMediclaimApplication" IsNewNode="True" />
+          <Item Id="MyMediclaimPolicies" ViewId="MyMediclaimPolicy_ListView" IsNewNode="True" />
+          <Item Id="Task_ListView" ViewId="Task_ListView" ObjectKey="" ImageName="BO_Task" IsNewNode="True" />
+          <Item Id="TDS_ListView" ViewId="TDS_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Masters" Caption="Masters" ImageName="BO_Appearance" Index="2" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Customer_ListView" ViewId="Customer_ListView" ObjectKey="" Index="0" ImageName="BO_Customer" IsNewNode="True" />
+          <Item Id="Lead_ListView" ViewId="Lead_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+          <Item Id="Driver_ListView" ViewId="Driver_ListView" ObjectKey="" Index="2" ImageName="BO_Lead" IsNewNode="True" />
+          <Item Id="CarType_ListView" ViewId="CarType_ListView" ObjectKey="" Index="3" ImageName="Travel_Car" IsNewNode="True" />
+          <Item Id="Car_ListView" ViewId="Car_ListView" ObjectKey="" ImageName="Travel_Car" Index="4" IsNewNode="True" />
+          <Item Id="CashBank_ListView" ViewId="CashBank_ListView" ObjectKey="" Index="5" IsNewNode="True" />
+          <Item Id="InstrumentType_ListView" ViewId="InstrumentType_ListView" ObjectKey="" Index="6" IsNewNode="True" />
+          <Item Id="Plan_ListView" ViewId="Plan_ListView" ObjectKey="" Caption="LIC Plan" Index="7" ImageName="BO_Resume" IsNewNode="True" />
+          <Item Id="Category_ListView" ViewId="Category_ListView" ObjectKey="" Index="8" IsNewNode="True" />
+          <Item Id="SubCategory_ListView" ViewId="SubCategory_ListView" ObjectKey="" Index="9" ImageName="ModelEditor_Categorized" IsNewNode="True" />
+          <Item Id="MediclaimPlan_ListView" ViewId="MediclaimPlan_ListView" ObjectKey="" Index="10" IsNewNode="True" />
+          <Item Id="Response_ListView" ViewId="Response_ListView" ObjectKey="" ImageName="BO_List" Index="11" IsNewNode="True" />
+          <Item Id="TaskCategory_ListView" ViewId="TaskCategory_ListView" ObjectKey="" ImageName="DuplicateValues" Index="12" IsNewNode="True" />
+          <Item Id="Attachments" Index="13" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="CustomerAttachment" Caption="Customer" ViewId="CustomerFileData_ListView" IsNewNode="True" />
+              <Item Id="EmployeeAttachment" Caption="Employee/Agent" ViewId="EmployeeFileData_ListView" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="GICAssociates" ViewId="GICAssociates" IsNewNode="True" />
+          <Item Id="GICCustomers" ViewId="GIC Customers" IsNewNode="True" />
+          <Item Id="GICLeads" ViewId="GICLeads" IsNewNode="True" />
+          <Item Id="LICAssociates" ViewId="LICIDepartment" IsNewNode="True" />
+          <Item Id="LICCustomers" ViewId="LICCustomers" IsNewNode="True" />
+          <Item Id="LICLeads" ViewId="LICLeads" IsNewNode="True" />
+          <Item Id="LoanAssociates" ViewId="LoanAssociates" IsNewNode="True" />
+          <Item Id="LoanCustomers" ViewId="LoanCustomers" IsNewNode="True" />
+          <Item Id="LoanLeads" ViewId="LoanLeads" IsNewNode="True" />
+          <Item Id="MedicaliamAssociates" ViewId="MediclaimAssociates" IsNewNode="True" />
+          <Item Id="MediclaimCustomers" ViewId="MediclaimCustomers" IsNewNode="True" />
+          <Item Id="MediclaimLeads" ViewId="MediclaimLeads" IsNewNode="True" />
+          <Item Id="MutualFundAssociates" ViewId="MutualFundAssociates" IsNewNode="True" />
+          <Item Id="MutualFundCustomers" ViewId="MutualFundCustomers" IsNewNode="True" />
+          <Item Id="MutualFundLeads" ViewId="MutualFundLeads" IsNewNode="True" />
+          <Item Id="MyAssociates" Caption="My Associates" ViewId="MyAssociates" IsNewNode="True" />
+          <Item Id="MyCustomers" ViewId="MyCustomers" Caption="My Customer" IsNewNode="True" />
+          <Item Id="MyLeads" ViewId="MyLeads" Caption="My Lead" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default" Caption="Settings" Index="3">
+        <Items>
+          <Item Id="BookingOrder_ListView" Removed="True" />
+          <Item Id="CallLogCustomer_ListView" Removed="True" />
+          <Item Id="CallLogEmployee_ListView" Removed="True" />
+          <Item Id="CallLogLead_ListView" Removed="True" />
+          <Item Id="Car_ListView" Removed="True" />
+          <Item Id="CarType_ListView" Removed="True" />
+          <Item Id="CashBank_ListView" Removed="True" />
+          <Item Id="Category_ListView" Removed="True" />
+          <Item Id="Company_ListView" ImageName="AutoArrange" />
+          <Item Id="Customer_ListView" Removed="True" />
+          <Item Id="Discount_ListView" Removed="True" />
+          <Item Id="DocumentNumbering_ListView" ImageName="FieldSettingsPivotTable" />
+          <Item Id="DryInvoice_ListView" Removed="True" />
+          <Item Id="DutySlip_ListView" Removed="True" />
+          <Item Id="Employee_ListView" Caption="Employee/Agent" />
+          <Item Id="InstrumentType_ListView" Removed="True" />
+          <Item Id="Invoice_ListView" Removed="True" />
+          <Item Id="InvoiceDetail_ListView" Removed="True" />
+          <Item Id="InvoiceRegister_ListView" Visible="False" />
+          <Item Id="Lead_ListView" Removed="True" />
+          <Item Id="LICApplication_ListView" Removed="True" />
+          <Item Id="Loan_ListView" Removed="True" />
+          <Item Id="Mediclaim_ListView" Removed="True" />
+          <Item Id="MediclaimPlan_ListView" Removed="True" />
+          <Item Id="MediclaimPolicy_ListView" Removed="True" />
+          <Item Id="MediclaimReceiptFileData_ListView" Removed="True" />
+          <Item Id="Plan_ListView" Removed="True" />
+          <Item Id="Policy_ListView" Removed="True" />
+          <Item Id="Receipt_ListView" Removed="True" />
+          <Item Id="ReceiptFileData_ListView" Removed="True" />
+          <Item Id="Response_ListView" Removed="True" />
+          <Item Id="SubCategory_ListView" Removed="True" />
+          <Item Id="Task_ListView" Removed="True" />
+          <Item Id="TaskCategory_ListView" Removed="True" />
+          <Item Id="TaskComment_ListView" Removed="True" />
+          <Item Id="TaskFileData_ListView" Removed="True" />
+          <Item Id="TDS_ListView" Removed="True" />
+          <Item Id="WorkFlow" ViewId="WFBaseObject_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Reports">
+        <Items>
+          <Item Id="CustomerStatement" Caption="Customer Statement" ImageName="Office2013\Report_32x32" ViewId="ReportDataV2_ListView" Index="0" IsNewNode="True" />
+          <Item Id="CustomerBalance" Caption="Customer Balance" ViewId="ReportDataV2_ListView" Index="1" IsNewNode="True" />
+          <Item Id="TDSRegister" Caption="TDS Register" ViewId="ReportDataV2_ListView" Index="2" IsNewNode="True" />
+          <Item Id="DiscountRegister" Caption="Discount Register" ViewId="ReportDataV2_ListView" Index="3" IsNewNode="True" />
+          <Item Id="ReceiptRegister" Caption="Receipt Register" Index="4" ViewId="ReportDataV2_ListView" IsNewNode="True" />
+          <Item Id="Dashboards" Index="5" />
+          <Item Id="GSTRegister" Caption="GST Register" Index="5" ViewId="ReportDataV2_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" CaptionHorizontalAlignment="Near" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="24.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="BookingOrder_DetailView">
+      <Items>
+        <PropertyEditor Id="DocumentNo" Index="1" />
+        <PropertyEditor Id="DocumentDate" Index="2" />
+        <PropertyEditor Id="Customer" Index="3" />
+        <PropertyEditor Id="CarType" Index="4" />
+        <PropertyEditor Id="CarNumber" Index="5" />
+        <PropertyEditor Id="DropOffDateTime" Index="7" />
+        <PropertyEditor Id="DutySlips" Index="8" />
+        <PropertyEditor Id="MinHour" Index="9" EditMask="#,####0" DisplayFormat="{#,####0}" />
+        <PropertyEditor Id="MinKm" Index="10" EditMask="#,####0" DisplayFormat="{#,####0}" />
+        <PropertyEditor Id="Oid" Index="11" />
+        <PropertyEditor Id="PickupDateTime" Index="12" Caption="Pickup Date" />
+        <PropertyEditor Id="PricePerHour" Index="13" EditMask="#,####0.00" DisplayFormat="{#,####0.00}" />
+        <PropertyEditor Id="PricePerKm" Index="14" EditMask="#,####0.00" DisplayFormat="{#,####0.00}" />
+        <PropertyEditor Id="ReportingAddress" Index="15" />
+        <PropertyEditor Id="ReportingPersonMobileNo" Index="16" />
+        <PropertyEditor Id="ReportingPersonName" Index="17" />
+        <PropertyEditor Id="AdvanceAmount" Index="18" EditMask="#,####0.00" DisplayFormat="{#,####0.00}" />
+        <PropertyEditor Id="NightCharge" EditMask="#,####0.00" DisplayFormat="{#,####0.00}" />
+        <PropertyEditor Id="ReportingTime" EditMask="(0?\d|1\d|2[0-3])\:[0-5]\d" DisplayFormat="(0?\d|1\d|2[0-3])\:[0-5]\d" />
+      </Items>
+    </DetailView>
+    <ListView Id="BookingOrder_DutySlips_ListView" Criteria="" AllowNew="True" />
+    <ListView Id="BookingOrder_ListView">
+      <Columns>
+        <ColumnInfo Id="NightCharge" EditMask="#,####0.00" DisplayFormat="{#,####0.00}" />
+        <ColumnInfo Id="MinHour" Removed="True" />
+        <ColumnInfo Id="MinKm" Removed="True" />
+        <ColumnInfo Id="PricePerHour" Removed="True" />
+        <ColumnInfo Id="PricePerKm" Removed="True" />
+      </Columns>
+      <Filters>
+        <Filter Id="AllBookingOrders" Caption="All Booking Orders" Criteria="" Index="0" IsNewNode="True" />
+        <Filter Id="AllDryBookingOrder" Caption="All Dry Booking Order" Criteria="[IsDry] = True" Index="1" IsNewNode="True" />
+        <Filter Id="Pending for Car Allocation" Criteria="[CarNumber] Is Null" IsNewNode="True" />
+        <Filter Id="PendingForDutySlip" Caption="Pending for Duty Slip" Criteria="[Picked] = False" IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <ListView Id="BookingOrder_LookupListView">
+      <Columns>
+        <ColumnInfo Id="BookingDate" PropertyName="DocumentDate" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="CallLogCustomer_DetailView" ImageName="BO_Phone" AllowNew="True" AllowEdit="True" Caption="Call Log Customer" FreezeLayout="False">
+      <Items>
+        <PropertyEditor Id="Customer" LookupEditorMode="AllItemsWithSearch" />
+      </Items>
+    </DetailView>
+    <ListView Id="CallLogCustomer_LookupListView" AllowNew="True" AllowEdit="True" NewItemRowPosition="Top" ShowFindPanel="True" />
+    <DetailView Id="CallLogEmployee_DetailView" Caption="Call Log Employee/Agents">
+      <Items>
+        <PropertyEditor Id="Employees" Caption="Employees/Agents" LookupEditorMode="AllItemsWithSearch" PropertyName="Employees" LookupProperty="FirstName" View="" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="CallLogEmployee">
+              <LayoutGroup Id="CallLogEmployee_col1">
+                <LayoutItem Id="Responses" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="CallLogEmployee_col2">
+                <LayoutItem Id="CallStatus" Index="0" />
+                <LayoutItem Id="Responses" ViewItem="Responses" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="FollowUpDateTime" Index="2" />
+                <LayoutItem Id="CreatedBy" Index="3" />
+                <LayoutItem Id="CreatedOn" Index="4" />
+                <LayoutItem Id="Company" Index="5" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="CallLogEmployee_ListView" Caption="Call Log Employee/Agents" />
+    <ListView Id="CallLogEmployee_LookupListView" Caption="Call Log Employee/Agents" />
+    <DetailView Id="CallLogLead_DetailView">
+      <Items>
+        <PropertyEditor Id="Leads" LookupEditorMode="AllItemsWithSearch" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="CallLogLead">
+              <LayoutGroup Id="CallLogLead_col1">
+                <LayoutItem Id="CallStatus" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="CallLogLead_col2">
+                <LayoutItem Id="CallStatus" ViewItem="CallStatus" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="Responses" Index="1" />
+                <LayoutItem Id="FollowUpDateTime" Index="4" />
+                <LayoutItem Id="Company" Index="5" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Company_Employees_ListView" Caption="Employee/Agents" />
+    <DetailView Id="Customer_DetailView">
+      <HiddenActions>
+        <ActionLink ActionId="CustomerStatementAction" IsNewNode="True" />
+        <ActionLink ActionId="DiscountRegisterController" IsNewNode="True" />
+        <ActionLink ActionId="InvoiceRegisterController" IsNewNode="True" />
+        <ActionLink ActionId="ReceiptRegisterController" IsNewNode="True" />
+        <ActionLink ActionId="TDSRegisterController" IsNewNode="True" />
+      </HiddenActions>
+      <Items>
+        <PropertyEditor Id="IFSCCode" Caption="IFSC Code" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Customer" Caption="Personal Details" IsCollapsibleGroup="True">
+              <LayoutGroup Id="Customer_col1">
+                <LayoutItem Id="DateOfBirth" ViewItem="DateOfBirth" ShowCaption="" Index="1" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="City" Removed="True" />
+                <LayoutItem Id="Country" Removed="True" />
+                <LayoutItem Id="Email" Removed="True" />
+                <LayoutItem Id="FathersName" Removed="True" />
+                <LayoutItem Id="MothersName" Removed="True" />
+                <LayoutItem Id="Name" Removed="True" />
+                <LayoutItem Id="Phone1" Removed="True" />
+                <LayoutItem Id="Phone2" Removed="True" />
+                <LayoutItem Id="PinCode" Removed="True" />
+                <LayoutItem Id="SpouseName" Removed="True" />
+                <LayoutItem Id="State" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Customer_col2">
+                <LayoutItem Id="Name" ViewItem="Name" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="PlaceOfBirth" ShowCaption="" Index="14" ViewItem="PlaceOfBirth" IsNewNode="True" />
+                <LayoutItem Id="AadharNo" Removed="True" />
+                <LayoutItem Id="AccountNo" Removed="True" />
+                <LayoutItem Id="BankName" Removed="True" />
+                <LayoutItem Id="BranchName" Removed="True" />
+                <LayoutItem Id="HeadOfFamily" Removed="True" />
+                <LayoutItem Id="HeadOfTheFamily" Removed="True" />
+                <LayoutItem Id="IFSCCode" Removed="True" />
+                <LayoutItem Id="MonthlyIncome" Removed="True" />
+                <LayoutItem Id="Occupation" Removed="True" />
+                <LayoutItem Id="PanNo" Removed="True" />
+                <LayoutItem Id="PrevInvestment" Removed="True" />
+                <LayoutItem Id="Qualification" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="Address" Direction="Horizontal" IsCollapsibleGroup="True" ShowCaption="True" IsGroupCollapsed="True" IsNewNode="True">
+              <LayoutGroup Id="Address_col1" Direction="Vertical" IsNewNode="True">
+                <LayoutItem Id="Address1" ViewItem="Address1" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="Address2" ViewItem="Address2" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutGroup Id="Address_SubCol1" Direction="Horizontal" IsNewNode="True">
+                  <LayoutItem Id="City" ViewItem="City" ShowCaption="" Index="6" IsNewNode="True" />
+                  <LayoutItem Id="Country" ViewItem="Country" ShowCaption="" Index="8" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Address_SubCol2" Direction="Horizontal" IsNewNode="True">
+                  <LayoutItem Id="State" ViewItem="State" ShowCaption="" Index="7" IsNewNode="True" />
+                  <LayoutItem Id="PinCode" ViewItem="PinCode" ShowCaption="" Index="9" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="BankingDetails" Caption="Banking Details" Direction="Horizontal" ShowCaption="True" IsCollapsibleGroup="True" IsGroupCollapsed="True" IsNewNode="True">
+              <LayoutGroup Id="Banking_col1" IsNewNode="True">
+                <LayoutItem Id="BankName" ViewItem="BankName" ShowCaption="" Index="5" IsNewNode="True" />
+                <LayoutItem Id="AccountNo" ViewItem="AccountNo" ShowCaption="" Index="7" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Banking_Col2" IsNewNode="True">
+                <LayoutItem Id="BranchName" ViewItem="BranchName" ShowCaption="" Index="6" IsNewNode="True" />
+                <LayoutItem Id="IFSCCode" ViewItem="IFSCCode" ShowCaption="" Index="8" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="ContactDetails" Caption="Contact Details" Direction="Horizontal" ShowCaption="True" IsCollapsibleGroup="True" IsGroupCollapsed="True" IsNewNode="True">
+              <LayoutGroup Id="Contact_col1" IsNewNode="True">
+                <LayoutItem Id="Phone1" ViewItem="Phone1" ShowCaption="" Index="10" IsNewNode="True" />
+                <LayoutItem Id="Email" ViewItem="Email" ShowCaption="" Index="12" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Contact_col2" IsNewNode="True">
+                <LayoutItem Id="Phone2" ViewItem="Phone2" ShowCaption="" Index="11" IsNewNode="True" />
+                <LayoutItem Id="Website" ViewItem="Website" ShowCaption="" Index="13" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="Family Details" Direction="Horizontal" ShowCaption="True" IsCollapsibleGroup="True" IsGroupCollapsed="True" IsNewNode="True">
+              <LayoutGroup Id="Family_col1" Index="0" IsNewNode="True">
+                <LayoutItem Id="FathersName" ViewItem="FathersName" ShowCaption="" Index="3" IsNewNode="True" />
+                <LayoutItem Id="SpouseName" ViewItem="SpouseName" ShowCaption="" Index="5" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Family_col2" Index="1" IsNewNode="True">
+                <LayoutItem Id="MothersName" ViewItem="MothersName" ShowCaption="" Index="4" IsNewNode="True" />
+                <LayoutItem Id="HeadOfFamily" ViewItem="HeadOfFamily" ShowCaption="" Index="10" IsNewNode="True" />
+                <LayoutItem Id="HeadOfTheFamily" ViewItem="HeadOfTheFamily" ShowCaption="" Index="11" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="ProfessionalDetails" Direction="Horizontal" ShowCaption="True" IsCollapsibleGroup="True" IsGroupCollapsed="True" IsNewNode="True">
+              <LayoutGroup Id="Professional_col1" Caption="Professional Details" IsNewNode="True">
+                <LayoutItem Id="PanNo" ViewItem="PanNo" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="MonthlyIncome" ViewItem="MonthlyIncome" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="Qualification" ViewItem="Qualification" ShowCaption="" Index="2" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Professional_col2" IsNewNode="True">
+                <LayoutItem Id="AadharNo" ViewItem="AadharNo" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="Occupation" ViewItem="Occupation" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="PrevInvestment" ViewItem="PrevInvestment" ShowCaption="" Index="2" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutItem Id="Address1" Removed="True" />
+            <LayoutItem Id="Address2" Removed="True" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="CallLogs" Index="0" ImageName="BO_Phone" ShowCaption="False">
+              <LayoutItem Id="CallLogs" ShowCaption="False" />
+            </LayoutGroup>
+            <LayoutGroup Id="Categories" Index="1" />
+            <LayoutGroup Id="FamilyMembers" Index="2" />
+            <LayoutGroup Id="Policies" Caption="LIC Policies" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Customer_FamilyMembers_ListView">
+      <Columns>
+        <ColumnInfo Id="AadharNo" Removed="True" />
+        <ColumnInfo Id="AccountNo" Removed="True" />
+        <ColumnInfo Id="Address1" Removed="True" />
+        <ColumnInfo Id="Address2" Removed="True" />
+        <ColumnInfo Id="BankName" Removed="True" />
+        <ColumnInfo Id="BranchName" Removed="True" />
+        <ColumnInfo Id="City" Removed="True" />
+        <ColumnInfo Id="Company" Removed="True" />
+        <ColumnInfo Id="Country" Removed="True" />
+        <ColumnInfo Id="Email" Removed="True" />
+        <ColumnInfo Id="FathersName" Removed="True" />
+        <ColumnInfo Id="HeadOfFamily" Removed="True" />
+        <ColumnInfo Id="HeadOfTheFamily" Removed="True" />
+        <ColumnInfo Id="Height" Removed="True" />
+        <ColumnInfo Id="IFSCCode" Removed="True" />
+        <ColumnInfo Id="MonthlyIncome" Removed="True" />
+        <ColumnInfo Id="MothersName" Removed="True" />
+        <ColumnInfo Id="Occupation" Removed="True" />
+        <ColumnInfo Id="PanNo" Removed="True" />
+        <ColumnInfo Id="Phone1" Removed="True" />
+        <ColumnInfo Id="Phone2" Removed="True" />
+        <ColumnInfo Id="PinCode" Removed="True" />
+        <ColumnInfo Id="PlaceOfBirth" Removed="True" />
+        <ColumnInfo Id="PrevInvestment" Removed="True" />
+        <ColumnInfo Id="Qualification" Removed="True" />
+        <ColumnInfo Id="SpouseName" Removed="True" />
+        <ColumnInfo Id="State" Removed="True" />
+        <ColumnInfo Id="Website" Removed="True" />
+        <ColumnInfo Id="Weight" Removed="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Customer_ListView" AllowEdit="True" />
+    <ListView Id="Customer_LookupListView" ImageName="BO_Customer">
+      <Columns>
+        <ColumnInfo Id="CustomerCode" PropertyName="CustomerCode" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Customer_MoneyReceipts_ListView" Caption="LIC Payment Receipt" />
+    <ListView Id="Customer_NomineePolicies_ListView" Caption="LIC Policy" />
+    <ListView Id="Customer_Policies_ListView" Caption="LIC Policy" />
+    <DetailView Id="DutySlip_DetailView">
+      <Items>
+        <PropertyEditor Id="DecorationCharges" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="GarageInKm" DisplayFormat="{0:d}" EditMask="d" />
+        <PropertyEditor Id="GarageInTime" EditMask="(0?\d|1\d|2[0-3])\:[0-5]\d" />
+        <PropertyEditor Id="GarageOutKm" DisplayFormat="{0:d}" EditMask="d" />
+        <PropertyEditor Id="GarageOutTime" EditMask="(0?\d|1\d|2[0-3])\:[0-5]\d" />
+        <PropertyEditor Id="GrossAmount" EditMask="n2" DisplayFormat="{0:n2}" AllowEdit="False" />
+        <PropertyEditor Id="HiringTimeKm" AllowEdit="False" />
+        <PropertyEditor Id="NetAmount" AllowEdit="False" />
+        <PropertyEditor Id="NightCharge" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="ParkngCharges" Caption="Toll/Parkng Charges" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="RatePerKmHour" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="TotalHours" DisplayFormat="{0:d}" EditMask="d" AllowEdit="False" />
+        <PropertyEditor Id="TotalKm" DisplayFormat="{0:d}" EditMask="d" AllowEdit="False" />
+      </Items>
+    </DetailView>
+    <ListView Id="DutySlip_ListView" AllowNew="False" />
+    <ListView Id="Employee_CallLogs_ListView" Caption="Call Log Employee/Agents" />
+    <DetailView Id="Employee_DetailView" Caption="Employee/Agents">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Employee">
+              <LayoutGroup Id="Employee_col1">
+                <LayoutItem Id="AgencyCode" Removed="True" />
+                <LayoutItem Id="AnniversaryDate" Removed="True" />
+                <LayoutItem Id="Child1DateOfBirth" Removed="True" />
+                <LayoutItem Id="ChildName1" Removed="True" />
+                <LayoutItem Id="ChildName2" Removed="True" />
+                <LayoutItem Id="DateOfAppointment" Removed="True" />
+                <LayoutItem Id="FathersName" Removed="True" />
+                <LayoutItem Id="LoanCode" Removed="True" />
+                <LayoutItem Id="MediclaimAgencyCode" Removed="True" />
+                <LayoutItem Id="MothersName" Removed="True" />
+                <LayoutItem Id="MutualFundCode" Removed="True" />
+                <LayoutItem Id="RMCode" Removed="True" />
+                <LayoutItem Id="SpouseDateOfBirth" Removed="True" />
+                <LayoutItem Id="SpouseName" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Employee_col2">
+                <LayoutItem Id="LastName" ViewItem="LastName" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="PlaceOfBirth" Index="2" />
+                <LayoutItem Id="Phone1" Index="3" Removed="True" />
+                <LayoutItem Id="Occupation" Index="4" Removed="True" />
+                <LayoutItem Id="Qualification" Index="5" Removed="True" />
+                <LayoutItem Id="AadharNo" Removed="True" />
+                <LayoutItem Id="AccountNo" Removed="True" />
+                <LayoutItem Id="BankName" Removed="True" />
+                <LayoutItem Id="BranchName" Removed="True" />
+                <LayoutItem Id="Email" Removed="True" />
+                <LayoutItem Id="IFSCCode" Removed="True" />
+                <LayoutItem Id="PanNo" Removed="True" />
+                <LayoutItem Id="Phone2" Removed="True" />
+                <LayoutItem Id="PinCode" Removed="True" />
+                <LayoutItem Id="SalesExperience" Removed="True" />
+                <LayoutItem Id="Website" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="AddressLayout" Caption="Address" Direction="Horizontal" ShowCaption="True" Index="1" IsNewNode="True">
+              <LayoutGroup Id="Address_col1" IsNewNode="True">
+                <LayoutItem Id="Address1" ViewItem="Address1" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="City" ViewItem="City" ShowCaption="" Index="8" IsNewNode="True" />
+                <LayoutItem Id="Country" ViewItem="Country" ShowCaption="" Index="10" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Address_col2" IsNewNode="True">
+                <LayoutItem Id="Address2" ViewItem="Address2" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="State" ViewItem="State" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="PinCode" ViewItem="PinCode" ShowCaption="" Index="2" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="Contact_Details" Caption="Contact Details" Direction="Horizontal" ShowCaption="True" Index="2" IsNewNode="True">
+              <LayoutGroup Id="Contact_Col1" IsNewNode="True">
+                <LayoutItem Id="Phone1" ViewItem="Phone1" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="Email" ViewItem="Email" ShowCaption="" Index="1" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Contact_Col2" IsNewNode="True">
+                <LayoutItem Id="Phone2" ViewItem="Phone2" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="Website" ViewItem="Website" ShowCaption="" Index="2" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="FamilyDetails" Caption="Family Details" Index="3" Direction="Horizontal" ShowCaption="True" IsNewNode="True">
+              <LayoutGroup Id="Family_col1" IsNewNode="True">
+                <LayoutItem Id="FathersName" ViewItem="FathersName" ShowCaption="" Index="5" IsNewNode="True" />
+                <LayoutItem Id="SpouseName" ViewItem="SpouseName" ShowCaption="" Index="7" IsNewNode="True" />
+                <LayoutItem Id="SpouseDateOfBirth" ViewItem="SpouseDateOfBirth" ShowCaption="" Index="15" IsNewNode="True" />
+                <LayoutItem Id="ChildName1" ViewItem="ChildName1" ShowCaption="" Index="17" IsNewNode="True" />
+                <LayoutItem Id="ChildName2" ViewItem="ChildName2" ShowCaption="" Index="19" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Family_col2" IsNewNode="True">
+                <LayoutItem Id="MothersName" ViewItem="MothersName" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="AnniversaryDate" ViewItem="AnniversaryDate" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="Child1DateOfBirth" ViewItem="Child1DateOfBirth" ShowCaption="" Index="2" IsNewNode="True" />
+                <LayoutItem Id="Child2DateOfBirth" ViewItem="Child2DateOfBirth" ShowCaption="" Index="3" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="BankingDetails" Caption="Banking Details" Direction="Horizontal" ShowCaption="True" Index="4" IsNewNode="True">
+              <LayoutGroup Id="Banking_col1" IsNewNode="True">
+                <LayoutItem Id="BankName" ViewItem="BankName" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="AccountNo" ViewItem="AccountNo" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="PanNo" ViewItem="PanNo" ShowCaption="" Index="2" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Banking_col2" IsNewNode="True">
+                <LayoutItem Id="BranchName" ViewItem="BranchName" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="IFSCCode" ViewItem="IFSCCode" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="AadharNo" ViewItem="AadharNo" ShowCaption="" Index="2" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="ServiceCodes" Caption="Service Codes" Direction="Horizontal" Index="5" IsNewNode="True">
+              <LayoutGroup Id="ServiceCodes_col1" Index="1" IsNewNode="True">
+                <LayoutItem Id="AgencyCode" ViewItem="AgencyCode" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="MutualFundCode" ViewItem="MutualFundCode" ShowCaption="" Index="7" IsNewNode="True" />
+                <LayoutItem Id="LoanCode" ViewItem="LoanCode" ShowCaption="" Index="8" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="ServiceCodes_Col2" IsNewNode="True">
+                <LayoutItem Id="RMCode" ViewItem="RMCode" ShowCaption="" Index="2" IsNewNode="True" />
+                <LayoutItem Id="MediclaimAgencyCode" ViewItem="MediclaimAgencyCode" ShowCaption="" Index="6" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="ProfessionalDetails" Caption="Professional Details" Direction="Horizontal" Index="6" IsNewNode="True">
+              <LayoutGroup Id="Prof_det1" Index="0" IsNewNode="True">
+                <LayoutItem Id="Occupation" Index="4" ViewItem="Occupation" ShowCaption="" IsNewNode="True" />
+                <LayoutItem Id="DateOfAppointment" ViewItem="DateOfAppointment" ShowCaption="" Index="9" IsNewNode="True" />
+                <LayoutItem Id="SalesExperience" ViewItem="SalesExperience" ShowCaption="" Index="11" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Prof_det2" Index="1" IsNewNode="True">
+                <LayoutItem Id="Qualification" Index="5" ViewItem="Qualification" ShowCaption="" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="PermissionPolicyUser" Index="7" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutItem Id="Address1" Removed="True" />
+            <LayoutItem Id="Address2" Removed="True" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Policies" Caption="LIC Policies" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Employee_ListView" AllowEdit="True" />
+    <ListView Id="Employee_LookupListView" Caption="Employee/Agents" />
+    <ListView Id="Employee_MyLeads_ListView" Criteria="[AssignTo.Oid] = CURRENTUSERID() Or [CreatedBy.Oid] = CURRENTUSERID()" />
+    <ListView Id="Employee_MyTask_ListView" Criteria="[AssignTo.Oid] = CURRENTUSERID() Or [CreatedBy.Oid] = CURRENTUSERID()" />
+    <ListView Id="Employee_Policies_ListView" Caption="LIC Policy" />
+    <ListView Id="GIC Customers" ClassName="GatiCarRental.Module.BusinessObjects.Customer" AllowEdit="True" Caption="GIC Customer" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,GIC#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="CustomerCode" PropertyName="CustomerCode" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="MonthlyIncome" PropertyName="MonthlyIncome" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfFamily" PropertyName="HeadOfFamily" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfTheFamily" PropertyName="HeadOfTheFamily" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="34" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="GIC Tasks" ClassName="GatiCarRental.Module.BusinessObjects.Task" Caption="GIC Tasks" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,GIC#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TaskCategory" PropertyName="TaskCategory" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="TaskSubCategory" PropertyName="TaskSubCategory" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="12" IsNewNode="True" />
+      </Columns>
+      <Filters IsNewNode="True">
+        <Filter Id="All Tasks" Criteria="" IsNewNode="True" />
+        <Filter Id="MyTasks" Caption="My Task" Criteria="[AssignTo.Oid] = CurrentUserId() Or [CreatedBy.Oid] = CurrentUserId()" IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <ListView Id="GICAssociates" ClassName="GatiCarRental.Module.BusinessObjects.Employee" AllowEdit="True" Caption="GIC Associates" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,GIC# And [TypeOfEmployee] = ##Enum#GatiCarRental.Module.BusinessObjects.EmployeeType,Associates#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" PropertyName="ChangePasswordOnFirstLogon" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="IsActive" PropertyName="IsActive" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="UserName" PropertyName="UserName" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="UINCode" PropertyName="UINCode" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TypeOfEmployee" PropertyName="TypeOfEmployee" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AgencyCode" PropertyName="AgencyCode" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="RMCode" PropertyName="RMCode" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimAgencyCode" PropertyName="MediclaimAgencyCode" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MutualFundCode" PropertyName="MutualFundCode" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="LoanCode" PropertyName="LoanCode" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="DateOfAppointment" PropertyName="DateOfAppointment" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="SpouseDateOfBirth" PropertyName="SpouseDateOfBirth" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="AnniversaryDate" PropertyName="AnniversaryDate" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="ChildName1" PropertyName="ChildName1" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="Child1DateOfBirth" PropertyName="Child1DateOfBirth" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="ChildName2" PropertyName="ChildName2" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Child2DateOfBirth" PropertyName="Child2DateOfBirth" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="SalesExperience" PropertyName="SalesExperience" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="40" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="41" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="GICLeads" ClassName="GatiCarRental.Module.BusinessObjects.Lead" Caption="GIC Leads" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,GIC#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="16" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Invoice_InvoiceDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="BookingOrderDate" PropertyName="DutySlip.BookingOrder.DocumentDate" Caption="Booking Order Date" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="CarType" PropertyName="DutySlip.BookingOrder.CarType.Name" Caption="Car Type" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="CarNumber" PropertyName="DutySlip.BookingOrder.CarNumber.CarNumber" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="GrossAmount" Index="4" EditMask="n2" DisplayFormat="{0:n2}" />
+        <ColumnInfo Id="NightCharge" Index="5" EditMask="n2" DisplayFormat="{0:n2}" />
+        <ColumnInfo Id="DecorationCharges" Index="6" EditMask="n2" DisplayFormat="{0:n2}" />
+        <ColumnInfo Id="TaxableAmount" Index="6" EditMask="n2" DisplayFormat="{0:n2}" />
+        <ColumnInfo Id="SGSTAmount" Index="8" EditMask="n2" DisplayFormat="{0:n2}" />
+        <ColumnInfo Id="CGSTAmount" Index="9" EditMask="n2" DisplayFormat="{0:n2}" />
+        <ColumnInfo Id="ParkngCharges" Index="10" EditMask="n2" DisplayFormat="{0:n2}" />
+        <ColumnInfo Id="TotalAmount" Index="11" EditMask="n2" DisplayFormat="{0:n2}" />
+      </Columns>
+    </ListView>
+    <DetailView Id="InvoiceDetail_DetailView">
+      <Items>
+        <PropertyEditor Id="BookingOrderDate" PropertyName="DutySlip.BookingOrder.DocumentDate" Caption="Booking Order Date" IsNewNode="True" />
+        <PropertyEditor Id="CarNumber" PropertyName="DutySlip.BookingOrder.CarNumber.CarNumber" IsNewNode="True" />
+        <PropertyEditor Id="CarType" PropertyName="DutySlip.BookingOrder.CarType.Name" Caption="Car Type" IsNewNode="True" />
+        <PropertyEditor Id="CGSTAmount" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="DecorationCharges" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="GrossAmount" EditMask="n2" DisplayFormat="{0:n2}" AllowEdit="False" />
+        <PropertyEditor Id="NightCharge" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="ParkngCharges" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="SGSTAmount" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="TaxableAmount" EditMask="n2" DisplayFormat="{0:n2}" AllowEdit="False" />
+        <PropertyEditor Id="TotalAmount" EditMask="n2" DisplayFormat="{0:n2}" AllowEdit="False" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="InvoiceDetail" RelativeSize="100">
+              <LayoutGroup Id="InvoiceDetail_col1" RelativeSize="49.707602339181285">
+                <LayoutItem Id="DutySlip" RelativeSize="7.33652312599681" />
+                <LayoutItem Id="BookingOrderDate" ViewItem="BookingOrderDate" Index="1" RelativeSize="5.4226475279106854" IsNewNode="True" />
+                <LayoutItem Id="CarType" ViewItem="CarType" Index="2" RelativeSize="5.4226475279106854" IsNewNode="True" />
+                <LayoutItem Id="CarNumber" ViewItem="CarNumber" Index="3" RelativeSize="5.4226475279106854" IsNewNode="True" />
+                <LayoutItem Id="GrossAmount" ViewItem="GrossAmount" Index="4" RelativeSize="5.4226475279106854" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="NightCharge" ViewItem="NightCharge" Index="5" RelativeSize="5.4226475279106854" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="Item1" Index="6" RelativeSize="65.550239234449762" IsNewNode="True" />
+                <LayoutItem Id="TaxableAmount" Index="7" RelativeSize="60.127591706539071" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="InvoiceDetail_col2" RelativeSize="50.292397660818715">
+                <LayoutItem Id="DecorationCharges" ViewItem="DecorationCharges" Index="0" RelativeSize="7.33652312599681" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="TaxableAmount" ViewItem="TaxableAmount" Index="1" RelativeSize="5.4226475279106854" IsNewNode="True" />
+                <LayoutItem Id="SGSTAmount" Index="2" RelativeSize="5.4226475279106854" ViewItem="SGSTAmount" IsNewNode="True" />
+                <LayoutItem Id="CGSTAmount" RelativeSize="5.4226475279106854" Index="3" />
+                <LayoutItem Id="ParkngCharges" RelativeSize="5.4226475279106854" Index="4" />
+                <LayoutItem Id="TotalAmount" Index="5" RelativeSize="5.4226475279106854" />
+                <LayoutItem Id="SGSTRate" ViewItem="SGSTRate" Index="6" RelativeSize="65.550239234449762" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Lead_DetailView">
+      <Items>
+        <PropertyEditor Id="AssignTo" LookupEditorMode="AllItemsWithSearch" />
+      </Items>
+    </DetailView>
+    <ListView Id="Lead_ListView">
+      <Columns>
+        <ColumnInfo Id="AadharNo" Removed="True" />
+        <ColumnInfo Id="Address1" Removed="True" />
+        <ColumnInfo Id="Address2" Removed="True" />
+        <ColumnInfo Id="City" Removed="True" />
+        <ColumnInfo Id="Company" Removed="True" />
+        <ColumnInfo Id="Country" Removed="True" />
+        <ColumnInfo Id="Email" Removed="True" />
+        <ColumnInfo Id="MonthlyIncome" Removed="True" />
+        <ColumnInfo Id="Occupation" Removed="True" />
+        <ColumnInfo Id="PanNo" Removed="True" />
+        <ColumnInfo Id="Phone2" Removed="True" />
+        <ColumnInfo Id="PinCode" Removed="True" />
+        <ColumnInfo Id="Qualification" Removed="True" />
+        <ColumnInfo Id="State" Removed="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="LICApplication_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="LICApplication" Caption="LIC Application">
+              <LayoutGroup Id="Personal_Info_Col1" Index="0" IsCollapsibleGroup="False" IsNewNode="True">
+                <LayoutItem Id="DocumentNo" ViewItem="DocumentNo" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="Customer" ViewItem="Customer" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutGroup Id="LICApplication_col2" Index="2" IsCollapsibleGroup="True" Caption="LIC Application Form" ShowCaption="False" IsNewNode="True">
+                  <LayoutItem Id="Previous Policy Details 6" ViewItem="PrevPolicyDetails6" ShowCaption="" Index="0" IsNewNode="True" />
+                  <LayoutItem Id="Previous Policy Details 7" ViewItem="PrevPolicyDetails7" ShowCaption="" Index="1" IsNewNode="True" />
+                  <LayoutItem Id="Previous Policy Details 8" ViewItem="PrevPolicyDetails8" ShowCaption="" Index="2" IsNewNode="True" />
+                  <LayoutItem Id="PrevPolicyDetails9" ViewItem="PrevPolicyDetails9" ShowCaption="" Index="3" IsNewNode="True" />
+                  <LayoutItem Id="PrevPolicyDetails10" ViewItem="PrevPolicyDetails10" ShowCaption="" Index="4" IsNewNode="True" />
+                  <LayoutItem Id="MaritalStatu" ViewItem="MaritalStatu" ShowCaption="" Index="5" IsNewNode="True" />
+                  <LayoutItem Id="FathersAge" ViewItem="FathersAge" ShowCaption="" Index="6" IsNewNode="True" />
+                  <LayoutItem Id="MothersAge" ViewItem="MothersAge" ShowCaption="" Index="7" IsNewNode="True" />
+                  <LayoutItem Id="AllBrothersAge" ViewItem="AllBrothersAge" ShowCaption="" Index="8" IsNewNode="True" />
+                  <LayoutItem Id="AllSistersAge" ViewItem="AllSistersAge" ShowCaption="" Index="9" IsNewNode="True" />
+                  <LayoutItem Id="SpouseAge" ViewItem="SpouseAge" ShowCaption="" Index="10" IsNewNode="True" />
+                  <LayoutItem Id="AllDaughtersAge" ViewItem="AllDaughtersAge" ShowCaption="" Index="11" IsNewNode="True" />
+                  <LayoutItem Id="Height" ViewItem="Height" ShowCaption="" Index="12" IsNewNode="True" />
+                  <LayoutItem Id="Weight" ViewItem="Weight" ShowCaption="" Index="13" IsNewNode="True" />
+                  <LayoutItem Id="NomineeAge" ViewItem="NomineeAge" ShowCaption="" Index="15" IsNewNode="True" />
+                  <LayoutItem Id="NomineeRelation" ViewItem="NomineeRelation" ShowCaption="" Index="16" IsNewNode="True" />
+                  <LayoutItem Id="BankDetails" ViewItem="BankDetails" ShowCaption="" Index="17" IsNewNode="True" />
+                  <LayoutItem Id="Status" ViewItem="Status" ShowCaption="" Index="18" IsNewNode="True" />
+                  <LayoutItem Id="CreatedBy" ViewItem="CreatedBy" ShowCaption="" Index="19" IsNewNode="True" />
+                  <LayoutItem Id="CreatedByName" ViewItem="CreatedByName" ShowCaption="" Index="20" IsNewNode="True" />
+                  <LayoutItem Id="CreatedOn" ViewItem="CreatedOn" ShowCaption="" Index="21" IsNewNode="True" />
+                  <LayoutItem Id="DateCompleted" ViewItem="DateCompleted" ShowCaption="" Index="22" IsNewNode="True" />
+                  <LayoutItem Id="Company" ViewItem="Company" ShowCaption="" Index="23" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Personal_Info_Col2" Index="1" ShowCaption="False" IsNewNode="True">
+                <LayoutItem Id="DocumentDate" ViewItem="DocumentDate" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="Nominee" ViewItem="Nominee" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutGroup Id="LICApplication_col1" Index="2" IsCollapsibleGroup="True" Caption="LIC Application Form" ShowCaption="False" IsNewNode="True">
+                  <LayoutItem Id="AssignTo" ViewItem="AssignTo" ShowCaption="" Index="2" IsNewNode="True" />
+                  <LayoutItem Id="ResidentialStatus" ViewItem="ResidentialStatus" ShowCaption="" Index="4" IsNewNode="True" />
+                  <LayoutItem Id="Plan" ViewItem="Plan" ShowCaption="" Index="5" IsNewNode="True" />
+                  <LayoutItem Id="BasicSumAssured" ViewItem="BasicSumAssured" ShowCaption="" Index="6" IsNewNode="True" />
+                  <LayoutItem Id="Term" ViewItem="Term" ShowCaption="" Index="7" IsNewNode="True" />
+                  <LayoutItem Id="PremiumPayingTerm" ViewItem="PremiumPayingTerm" ShowCaption="" Index="8" IsNewNode="True" />
+                  <LayoutItem Id="CKYCNumber" ViewItem="CKYCNumber" ShowCaption="" Index="9" IsNewNode="True" />
+                  <LayoutItem Id="GSTINNo" ViewItem="GSTINNo" ShowCaption="" Index="10" IsNewNode="True" />
+                  <LayoutItem Id="YearlyIncome" ViewItem="YearlyIncome" ShowCaption="" Index="11" IsNewNode="True" />
+                  <LayoutItem Id="PresentOccupation" ViewItem="PresentOccupation" ShowCaption="" Index="12" IsNewNode="True" />
+                  <LayoutItem Id="CompanyName" ViewItem="CompanyName" ShowCaption="" Index="13" IsNewNode="True" />
+                  <LayoutItem Id="ExactNatureOfDuty" ViewItem="ExactNatureOfDuty" ShowCaption="" Index="14" IsNewNode="True" />
+                  <LayoutItem Id="SourceOfIncome" ViewItem="SourceOfIncome" ShowCaption="" Index="15" IsNewNode="True" />
+                  <LayoutItem Id="EducationalQualification" ViewItem="EducationalQualification" ShowCaption="" Index="16" IsNewNode="True" />
+                  <LayoutItem Id="LastYearIncome" ViewItem="LastYearIncome" ShowCaption="" Index="17" IsNewNode="True" />
+                  <LayoutItem Id="Last2ndYearIncome" ViewItem="Last2ndYearIncome" ShowCaption="" Index="18" IsNewNode="True" />
+                  <LayoutItem Id="PrevPolicyDetails1" ViewItem="PrevPolicyDetails1" ShowCaption="" Index="19" IsNewNode="True" />
+                  <LayoutItem Id="PrevPolicyDetails2" ViewItem="PrevPolicyDetails2" ShowCaption="" Index="20" IsNewNode="True" />
+                  <LayoutItem Id="PrevPolicyDetails3" ViewItem="PrevPolicyDetails3" ShowCaption="" Index="21" IsNewNode="True" />
+                  <LayoutItem Id="PrevPolicyDetails4" ViewItem="PrevPolicyDetails4" ShowCaption="" Index="22" IsNewNode="True" />
+                  <LayoutItem Id="PrevPolicyDetails5" ViewItem="PrevPolicyDetails5" ShowCaption="" Index="23" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="LICApplication_col2" Index="2" Direction="Vertical" IsCollapsibleGroup="True" Caption="LIC Application Form" Removed="True">
+                <LayoutItem Id="Nominee" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="LICApplication_col1" Index="3" Direction="Vertical" IsCollapsibleGroup="True" Caption="LIC Application Form" Removed="True">
+                <LayoutItem Id="Customer" Removed="True" />
+                <LayoutItem Id="DocumentDate" Removed="True" />
+                <LayoutItem Id="DocumentNo" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="LICApplication_ListView" Caption="LIC Application" />
+    <ListView Id="LICApplications" ClassName="GatiCarRental.Module.BusinessObjects.LICApplication" Caption="LIC Application" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,LICI#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="ResidentialStatus" PropertyName="ResidentialStatus" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Plan" PropertyName="Plan" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="BasicSumAssured" PropertyName="BasicSumAssured" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="Term" PropertyName="Term" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="PremiumPayingTerm" PropertyName="PremiumPayingTerm" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="UnderNACH" PropertyName="UnderNACH" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="CKYCNumber" PropertyName="CKYCNumber" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="ITAssesseeorNot" PropertyName="ITAssesseeorNot" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="RegisterUnderGSTAct" PropertyName="RegisterUnderGSTAct" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="GSTINNo" PropertyName="GSTINNo" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="YearlyIncome" PropertyName="YearlyIncome" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="PresentOccupation" PropertyName="PresentOccupation" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="CompanyName" PropertyName="CompanyName" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="ExactNatureOfDuty" PropertyName="ExactNatureOfDuty" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="SourceOfIncome" PropertyName="SourceOfIncome" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="EducationalQualification" PropertyName="EducationalQualification" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="LastYearIncome" PropertyName="LastYearIncome" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="Last2ndYearIncome" PropertyName="Last2ndYearIncome" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails1" PropertyName="PrevPolicyDetails1" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails2" PropertyName="PrevPolicyDetails2" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails3" PropertyName="PrevPolicyDetails3" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails4" PropertyName="PrevPolicyDetails4" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails5" PropertyName="PrevPolicyDetails5" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails6" PropertyName="PrevPolicyDetails6" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails7" PropertyName="PrevPolicyDetails7" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails8" PropertyName="PrevPolicyDetails8" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails9" PropertyName="PrevPolicyDetails9" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails10" PropertyName="PrevPolicyDetails10" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="MaritalStatu" PropertyName="MaritalStatu" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="FathersAge" PropertyName="FathersAge" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="MothersAge" PropertyName="MothersAge" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="AllBrothersAge" PropertyName="AllBrothersAge" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="AllSistersAge" PropertyName="AllSistersAge" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="SpouseAge" PropertyName="SpouseAge" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="AllDaughtersAge" PropertyName="AllDaughtersAge" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="40" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="41" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="42" IsNewNode="True" />
+        <ColumnInfo Id="NomineeDateOfBirth" PropertyName="NomineeDateOfBirth" Index="43" IsNewNode="True" />
+        <ColumnInfo Id="NomineeRelation" PropertyName="NomineeRelation" Index="44" IsNewNode="True" />
+        <ColumnInfo Id="BankDetails" PropertyName="BankDetails" Index="45" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="46" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="47" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="48" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="49" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="50" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="51" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LICCustomers" ClassName="GatiCarRental.Module.BusinessObjects.Customer" AllowEdit="True" Caption="LIC Customer" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,LICI#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="CustomerCode" PropertyName="CustomerCode" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="MonthlyIncome" PropertyName="MonthlyIncome" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfFamily" PropertyName="HeadOfFamily" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfTheFamily" PropertyName="HeadOfTheFamily" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="34" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LICIDepartment" ClassName="GatiCarRental.Module.BusinessObjects.Employee" AllowEdit="True" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,LICI# And [TypeOfEmployee] = ##Enum#GatiCarRental.Module.BusinessObjects.EmployeeType,Associates#" Caption="LIC Associates" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" PropertyName="ChangePasswordOnFirstLogon" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="IsActive" PropertyName="IsActive" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="UserName" PropertyName="UserName" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="UINCode" PropertyName="UINCode" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TypeOfEmployee" PropertyName="TypeOfEmployee" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AgencyCode" PropertyName="AgencyCode" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="RMCode" PropertyName="RMCode" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimAgencyCode" PropertyName="MediclaimAgencyCode" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MutualFundCode" PropertyName="MutualFundCode" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="LoanCode" PropertyName="LoanCode" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="DateOfAppointment" PropertyName="DateOfAppointment" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="SpouseDateOfBirth" PropertyName="SpouseDateOfBirth" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="AnniversaryDate" PropertyName="AnniversaryDate" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="ChildName1" PropertyName="ChildName1" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="Child1DateOfBirth" PropertyName="Child1DateOfBirth" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="ChildName2" PropertyName="ChildName2" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Child2DateOfBirth" PropertyName="Child2DateOfBirth" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="SalesExperience" PropertyName="SalesExperience" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="40" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="41" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LICLeads" ClassName="GatiCarRental.Module.BusinessObjects.Lead" Caption="LIC Leads" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,LICI#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="16" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LICPolicies" ClassName="GatiCarRental.Module.BusinessObjects.Policy" AllowEdit="True" Caption="LIC Policy" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,LICI#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PolicyNumber" PropertyName="PolicyNumber" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Agents" PropertyName="Agents" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Plan" PropertyName="Plan" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Term" PropertyName="Term" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="PPT" PropertyName="PPT" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="StartDate" PropertyName="StartDate" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MaturityDate" PropertyName="MaturityDate" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="FUPDate" PropertyName="FUPDate" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="SumAssured" PropertyName="SumAssured" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="PremiumAmount" PropertyName="PremiumAmount" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="LICPolicyStatus" PropertyName="LICPolicyStatus" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="PaymentMode" PropertyName="PaymentMode" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="17" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LICTasks" ClassName="GatiCarRental.Module.BusinessObjects.Task" Caption="LIC Tasks" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,LICI#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TaskCategory" PropertyName="TaskCategory" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="TaskSubCategory" PropertyName="TaskSubCategory" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="12" IsNewNode="True" />
+      </Columns>
+      <Filters IsNewNode="True">
+        <Filter Id="All Tasks" Criteria="" IsNewNode="True" />
+        <Filter Id="MyTasks" Caption="My Task" Criteria="[AssignTo.Oid] = CurrentUserId() Or [CreatedBy.Oid] = CurrentUserId()" IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <DetailView Id="Loan_DetailView" Caption="Loan Application" />
+    <ListView Id="Loan_ListView" Caption="Loan Application" />
+    <ListView Id="LoanApplication " ClassName="GatiCarRental.Module.BusinessObjects.Loan" Caption="Loan Application" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Loan#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="FullAddress" PropertyName="FullAddress" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="ApplicantNames" PropertyName="ApplicantNames" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="CoApplicantNames" PropertyName="CoApplicantNames" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="CoDateOfBirth" PropertyName="CoDateOfBirth" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MaritalStatu" PropertyName="MaritalStatu" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CoMaritalStatus" PropertyName="CoMaritalStatus" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="Phone" PropertyName="Phone" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="CoPhone" PropertyName="CoPhone" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="CoEmail" PropertyName="CoEmail" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="ApplicantRelation" PropertyName="ApplicantRelation" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="OCCUPATIONs" PropertyName="OCCUPATIONs" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CoOCCUPATION" PropertyName="CoOCCUPATION" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="YearlyIncome" PropertyName="YearlyIncome" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="CoYearlyIncome" PropertyName="CoYearlyIncome" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="CoPanNo" PropertyName="CoPanNo" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="LoanCategory" PropertyName="LoanCategory" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="BTREQUIRED" PropertyName="BTREQUIRED" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="ExpectedLoanAmt" PropertyName="ExpectedLoanAmt" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="30" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LoanAssociates" ClassName="GatiCarRental.Module.BusinessObjects.Employee" AllowEdit="True" Caption="Loan Associates" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Loan# And [TypeOfEmployee] = ##Enum#GatiCarRental.Module.BusinessObjects.EmployeeType,Associates#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" PropertyName="ChangePasswordOnFirstLogon" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="IsActive" PropertyName="IsActive" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="UserName" PropertyName="UserName" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="UINCode" PropertyName="UINCode" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TypeOfEmployee" PropertyName="TypeOfEmployee" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AgencyCode" PropertyName="AgencyCode" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="RMCode" PropertyName="RMCode" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimAgencyCode" PropertyName="MediclaimAgencyCode" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MutualFundCode" PropertyName="MutualFundCode" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="LoanCode" PropertyName="LoanCode" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="DateOfAppointment" PropertyName="DateOfAppointment" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="SpouseDateOfBirth" PropertyName="SpouseDateOfBirth" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="AnniversaryDate" PropertyName="AnniversaryDate" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="ChildName1" PropertyName="ChildName1" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="Child1DateOfBirth" PropertyName="Child1DateOfBirth" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="ChildName2" PropertyName="ChildName2" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Child2DateOfBirth" PropertyName="Child2DateOfBirth" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="SalesExperience" PropertyName="SalesExperience" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="40" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="41" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LoanCustomers" ClassName="GatiCarRental.Module.BusinessObjects.Customer" AllowEdit="True" Caption="Loan Customer" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Loan#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="CustomerCode" PropertyName="CustomerCode" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="MonthlyIncome" PropertyName="MonthlyIncome" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfFamily" PropertyName="HeadOfFamily" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfTheFamily" PropertyName="HeadOfTheFamily" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="34" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LoanLeads" ClassName="GatiCarRental.Module.BusinessObjects.Lead" Caption="Loan Lead" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Loan#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="16" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="LoanTasks" ClassName="GatiCarRental.Module.BusinessObjects.Task" Caption="Loan Tasks" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Loan#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TaskCategory" PropertyName="TaskCategory" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="TaskSubCategory" PropertyName="TaskSubCategory" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="12" IsNewNode="True" />
+      </Columns>
+      <Filters IsNewNode="True">
+        <Filter Id="All Tasks" Criteria="" IsNewNode="True" />
+        <Filter Id="MyTasks" Caption="My Task" Criteria="[AssignTo.Oid] = CurrentUserId() Or [CreatedBy.Oid] = CurrentUserId()" IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <DetailView Id="Mediclaim_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Mediclaim">
+              <LayoutGroup Id="Mediclaim_col1">
+                <LayoutItem Id="CoverTypes" ViewItem="" />
+                <LayoutItem Id="TotalMembers" ViewItem="" />
+                <LayoutItem Id="MembersAge" ViewItem="" />
+                <LayoutItem Id="SumInsured" ViewItem="" />
+                <LayoutItem Id="PanNo" ViewItem="" />
+              </LayoutGroup>
+              <LayoutGroup Id="Mediclaim_col2">
+                <LayoutItem Id="GSTINNo" ViewItem="" />
+                <LayoutItem Id="GSTRegistrationDate" ViewItem="" />
+                <LayoutItem Id="NomineeDateOfBirth" ViewItem="" />
+                <LayoutItem Id="NomineeRelation" ViewItem="" />
+                <LayoutItem Id="HasAnyPED" ViewItem="" />
+                <LayoutItem Id="ClaimCurrentorprevInsurer" ViewItem="" />
+                <LayoutItem Id="DeclinedCancelledOrChargedHigherPremium" ViewItem="" />
+                <LayoutItem Id="OtherPolicy" ViewItem="" />
+                <LayoutItem Id="WishToAddCrCard" ViewItem="" />
+                <LayoutItem Id="PaymentMode" ViewItem="" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Mediclaim_ListView" Caption="Mediclaim Application" />
+    <ListView Id="MediclaimApplications" ClassName="GatiCarRental.Module.BusinessObjects.Mediclaim" Caption="Mediclaim Application (HI)" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Mediclaim#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="FullAddress" PropertyName="FullAddress" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Phone" PropertyName="Phone" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CoverTypes" PropertyName="CoverTypes" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="TotalMembers" PropertyName="TotalMembers" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="MembersAge" PropertyName="MembersAge" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="SumInsured" PropertyName="SumInsured" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Tenure" PropertyName="Tenure" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="Benefits" PropertyName="Benefits" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="RegisterUnderGSTAct" PropertyName="RegisterUnderGSTAct" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="GSTINNo" PropertyName="GSTINNo" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="GSTRegistrationDate" PropertyName="GSTRegistrationDate" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="NomineeDateOfBirth" PropertyName="NomineeDateOfBirth" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="NomineeRelation" PropertyName="NomineeRelation" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="HasAnyPED" PropertyName="HasAnyPED" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="ClaimCurrentorprevInsurer" PropertyName="ClaimCurrentorprevInsurer" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="DeclinedCancelledOrChargedHigherPremium" PropertyName="DeclinedCancelledOrChargedHigherPremium" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="OtherPolicy" PropertyName="OtherPolicy" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="WishToAddCrCard" PropertyName="WishToAddCrCard" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="PaymentMode" PropertyName="PaymentMode" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="35" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MediclaimAssociates" ClassName="GatiCarRental.Module.BusinessObjects.Employee" AllowEdit="True" Caption="Mediclaim Associates" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Mediclaim# And [TypeOfEmployee] = ##Enum#GatiCarRental.Module.BusinessObjects.EmployeeType,Associates#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" PropertyName="ChangePasswordOnFirstLogon" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="IsActive" PropertyName="IsActive" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="UserName" PropertyName="UserName" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="UINCode" PropertyName="UINCode" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TypeOfEmployee" PropertyName="TypeOfEmployee" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AgencyCode" PropertyName="AgencyCode" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="RMCode" PropertyName="RMCode" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimAgencyCode" PropertyName="MediclaimAgencyCode" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MutualFundCode" PropertyName="MutualFundCode" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="LoanCode" PropertyName="LoanCode" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="DateOfAppointment" PropertyName="DateOfAppointment" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="SpouseDateOfBirth" PropertyName="SpouseDateOfBirth" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="AnniversaryDate" PropertyName="AnniversaryDate" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="ChildName1" PropertyName="ChildName1" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="Child1DateOfBirth" PropertyName="Child1DateOfBirth" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="ChildName2" PropertyName="ChildName2" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Child2DateOfBirth" PropertyName="Child2DateOfBirth" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="SalesExperience" PropertyName="SalesExperience" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="40" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="41" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MediclaimCustomers" ClassName="GatiCarRental.Module.BusinessObjects.Customer" AllowEdit="True" Caption="Mediclaim Customer" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Mediclaim#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="CustomerCode" PropertyName="CustomerCode" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="MonthlyIncome" PropertyName="MonthlyIncome" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfFamily" PropertyName="HeadOfFamily" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfTheFamily" PropertyName="HeadOfTheFamily" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="34" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MediclaimLeads" ClassName="GatiCarRental.Module.BusinessObjects.Lead" Caption="Mediclaim Leads" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Mediclaim#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="16" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MediclaimPolicies" ClassName="GatiCarRental.Module.BusinessObjects.MediclaimPolicy" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Mediclaim#" Caption="Mediclaim Policy (HI)" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PolicyNo" PropertyName="PolicyNo" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="StartDate" PropertyName="StartDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="EndDate" PropertyName="EndDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="InsuranceCompany" PropertyName="InsuranceCompany" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimPlan" PropertyName="MediclaimPlan" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="PolicyType" PropertyName="PolicyType" Index="7" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="MediclaimPolicy_DetailView">
+      <Items>
+        <PropertyEditor Id="Agents" LookupEditorMode="AllItemsWithSearch" />
+        <PropertyEditor Id="Customer" LookupEditorMode="AllItemsWithSearch" />
+        <PropertyEditor Id="PolicyHolders" LookupEditorMode="AllItemsWithSearch" />
+      </Items>
+    </DetailView>
+    <ListView Id="MediclaimPolicy_ListView">
+      <Columns>
+        <ColumnInfo Id="Agents" Removed="True" />
+        <ColumnInfo Id="CreatedBy" Removed="True" />
+        <ColumnInfo Id="CreatedOn" Removed="True" />
+        <ColumnInfo Id="CurrentProposalNo" Removed="True" />
+        <ColumnInfo Id="MedicineTaken" Removed="True" />
+        <ColumnInfo Id="MediclaimPolicyStatus" Removed="True" />
+        <ColumnInfo Id="PremiumAmount" Removed="True" />
+        <ColumnInfo Id="PreviousPolicy" Removed="True" />
+        <ColumnInfo Id="PreviousProposalNo" Removed="True" />
+        <ColumnInfo Id="SumAssured" Removed="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MediclaimPolicy_PolicyHolders_ListView">
+      <Columns>
+        <ColumnInfo Id="AadharNo" Removed="True" />
+        <ColumnInfo Id="AccountNo" Removed="True" />
+        <ColumnInfo Id="Address1" Removed="True" />
+        <ColumnInfo Id="Address2" Removed="True" />
+        <ColumnInfo Id="BankName" Removed="True" />
+        <ColumnInfo Id="BranchName" Removed="True" />
+        <ColumnInfo Id="City" Removed="True" />
+        <ColumnInfo Id="Country" Removed="True" />
+        <ColumnInfo Id="Email" Removed="True" />
+        <ColumnInfo Id="FathersName" Removed="True" />
+        <ColumnInfo Id="HeadOfFamily" Removed="True" />
+        <ColumnInfo Id="Height" Removed="True" />
+        <ColumnInfo Id="IFSCCode" Removed="True" />
+        <ColumnInfo Id="MonthlyIncome" Removed="True" />
+        <ColumnInfo Id="MothersName" Removed="True" />
+        <ColumnInfo Id="Occupation" Removed="True" />
+        <ColumnInfo Id="PanNo" Removed="True" />
+        <ColumnInfo Id="Phone1" Removed="True" />
+        <ColumnInfo Id="Phone2" Removed="True" />
+        <ColumnInfo Id="PinCode" Removed="True" />
+        <ColumnInfo Id="PlaceOfBirth" Removed="True" />
+        <ColumnInfo Id="PrevInvestment" Removed="True" />
+        <ColumnInfo Id="Qualification" Removed="True" />
+        <ColumnInfo Id="SpouseName" Removed="True" />
+        <ColumnInfo Id="State" Removed="True" />
+        <ColumnInfo Id="Website" Removed="True" />
+        <ColumnInfo Id="Weight" Removed="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MediclaimTasks" ClassName="GatiCarRental.Module.BusinessObjects.Task" Caption="Mediclaim Tasks" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,Mediclaim#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TaskCategory" PropertyName="TaskCategory" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="TaskSubCategory" PropertyName="TaskSubCategory" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="12" IsNewNode="True" />
+      </Columns>
+      <Filters IsNewNode="True">
+        <Filter Id="All Tasks" Criteria="" IsNewNode="True" />
+        <Filter Id="MyTasks" Caption="My Task" Criteria="[AssignTo.Oid] = CurrentUserId() Or [CreatedBy.Oid] = CurrentUserId()" IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <ListView Id="MutualFundAssociates" ClassName="GatiCarRental.Module.BusinessObjects.Employee" AllowEdit="True" Caption="Mutual Fund Associates" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,MutualFund# And [TypeOfEmployee] = ##Enum#GatiCarRental.Module.BusinessObjects.EmployeeType,Associates#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" PropertyName="ChangePasswordOnFirstLogon" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="IsActive" PropertyName="IsActive" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="UserName" PropertyName="UserName" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="UINCode" PropertyName="UINCode" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TypeOfEmployee" PropertyName="TypeOfEmployee" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AgencyCode" PropertyName="AgencyCode" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="RMCode" PropertyName="RMCode" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimAgencyCode" PropertyName="MediclaimAgencyCode" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MutualFundCode" PropertyName="MutualFundCode" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="LoanCode" PropertyName="LoanCode" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="DateOfAppointment" PropertyName="DateOfAppointment" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="SpouseDateOfBirth" PropertyName="SpouseDateOfBirth" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="AnniversaryDate" PropertyName="AnniversaryDate" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="ChildName1" PropertyName="ChildName1" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="Child1DateOfBirth" PropertyName="Child1DateOfBirth" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="ChildName2" PropertyName="ChildName2" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Child2DateOfBirth" PropertyName="Child2DateOfBirth" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="SalesExperience" PropertyName="SalesExperience" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="40" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="41" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MutualFundCustomers" ClassName="GatiCarRental.Module.BusinessObjects.Customer" AllowEdit="True" Caption="Mutual Fund Customer" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,MutualFund#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="CustomerCode" PropertyName="CustomerCode" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="MonthlyIncome" PropertyName="MonthlyIncome" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfFamily" PropertyName="HeadOfFamily" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfTheFamily" PropertyName="HeadOfTheFamily" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="34" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MutualFundLeads" ClassName="GatiCarRental.Module.BusinessObjects.Lead" Caption="Mutual Fund Leads" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,MutualFund#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="16" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MutualFundTasks" ClassName="GatiCarRental.Module.BusinessObjects.Task" Caption="Mutual Fund Tasks" Criteria="[Department] = ##Enum#GatiCarRental.Module.BusinessObjects.Department,MutualFund#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TaskCategory" PropertyName="TaskCategory" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="TaskSubCategory" PropertyName="TaskSubCategory" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="12" IsNewNode="True" />
+      </Columns>
+      <Filters IsNewNode="True">
+        <Filter Id="All Tasks" Criteria="" IsNewNode="True" />
+        <Filter Id="MyTasks" Caption="My Task" Criteria="[AssignTo.Oid] = CurrentUserId() Or [CreatedBy.Oid] = CurrentUserId()" IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <ListView Id="MyAssociates" ClassName="GatiCarRental.Module.BusinessObjects.Employee" AllowEdit="True" Criteria="" Caption="My Associates" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" PropertyName="ChangePasswordOnFirstLogon" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="IsActive" PropertyName="IsActive" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="UserName" PropertyName="UserName" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="UINCode" PropertyName="UINCode" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="TypeOfEmployee" PropertyName="TypeOfEmployee" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="AgencyCode" PropertyName="AgencyCode" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="RMCode" PropertyName="RMCode" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimAgencyCode" PropertyName="MediclaimAgencyCode" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MutualFundCode" PropertyName="MutualFundCode" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="LoanCode" PropertyName="LoanCode" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="DateOfAppointment" PropertyName="DateOfAppointment" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="SpouseDateOfBirth" PropertyName="SpouseDateOfBirth" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="AnniversaryDate" PropertyName="AnniversaryDate" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="ChildName1" PropertyName="ChildName1" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="Child1DateOfBirth" PropertyName="Child1DateOfBirth" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="ChildName2" PropertyName="ChildName2" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Child2DateOfBirth" PropertyName="Child2DateOfBirth" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="SalesExperience" PropertyName="SalesExperience" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="40" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyCallLogCustomer" ClassName="GatiCarRental.Module.BusinessObjects.CallLogCustomer" Caption="My Call Log Customer" Criteria="[CreatedBy.Oid] = CurrentUserID()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Remarks" PropertyName="Remarks" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Category" PropertyName="Category" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="SubCategory" PropertyName="SubCategory" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Responses" PropertyName="Responses" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="CallStatus" PropertyName="CallStatus" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FollowUpDateTime" PropertyName="FollowUpDateTime" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="10" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyCallLogEmployee_ListView" ClassName="GatiCarRental.Module.BusinessObjects.CallLogEmployee" Caption="My Call Log Employee/Associates" Criteria="[CreatedBy.Oid] = CurrentUserID()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Remarks" PropertyName="Remarks" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Employees" PropertyName="Employees" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Category" PropertyName="Category" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="SubCategory" PropertyName="SubCategory" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Responses" PropertyName="Responses" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="CallStatus" PropertyName="CallStatus" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FollowUpDateTime" PropertyName="FollowUpDateTime" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="10" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyCallLogLead_ListView" ClassName="GatiCarRental.Module.BusinessObjects.CallLogLead" Caption="My Call Log Lead" Criteria="[CreatedBy.Oid] = CurrentUserID()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Remarks" PropertyName="Remarks" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Leads" PropertyName="Leads" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="CallStatus" PropertyName="CallStatus" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Category" PropertyName="Category" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="SubCategory" PropertyName="SubCategory" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Responses" PropertyName="Responses" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="FollowUpDateTime" PropertyName="FollowUpDateTime" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="10" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyCustomers" ClassName="GatiCarRental.Module.BusinessObjects.Customer" AllowEdit="True" Criteria="[CreatedBy.Oid] = CurrentUserId()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="CustomerCode" PropertyName="CustomerCode" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Gender" PropertyName="Gender" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="FathersName" PropertyName="FathersName" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MothersName" PropertyName="MothersName" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="City" PropertyName="City" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="State" PropertyName="State" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="Country" PropertyName="Country" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="Phone2" PropertyName="Phone2" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Website" PropertyName="Website" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="PlaceOfBirth" PropertyName="PlaceOfBirth" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="MonthlyIncome" PropertyName="MonthlyIncome" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="Occupation" PropertyName="Occupation" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Qualification" PropertyName="Qualification" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="AadharNo" PropertyName="AadharNo" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="BankName" PropertyName="BankName" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="BranchName" PropertyName="BranchName" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="AccountNo" PropertyName="AccountNo" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="IFSCCode" PropertyName="IFSCCode" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfFamily" PropertyName="HeadOfFamily" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="HeadOfTheFamily" PropertyName="HeadOfTheFamily" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="31" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyLeads" ClassName="GatiCarRental.Module.BusinessObjects.Lead" Criteria="[CreatedBy.Oid] = CurrentUserID()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Phone1" PropertyName="Phone1" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="15" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyLICApplication" ClassName="GatiCarRental.Module.BusinessObjects.LICApplication" Caption="My LIC Application" Criteria="[CreatedBy.Oid] = Currentuserid()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="ResidentialStatus" PropertyName="ResidentialStatus" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Plan" PropertyName="Plan" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="BasicSumAssured" PropertyName="BasicSumAssured" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Term" PropertyName="Term" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="PremiumPayingTerm" PropertyName="PremiumPayingTerm" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="UnderNACH" PropertyName="UnderNACH" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="CKYCNumber" PropertyName="CKYCNumber" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="ITAssesseeorNot" PropertyName="ITAssesseeorNot" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="RegisterUnderGSTAct" PropertyName="RegisterUnderGSTAct" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="GSTINNo" PropertyName="GSTINNo" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="YearlyIncome" PropertyName="YearlyIncome" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="PresentOccupation" PropertyName="PresentOccupation" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="CompanyName" PropertyName="CompanyName" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="ExactNatureOfDuty" PropertyName="ExactNatureOfDuty" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="SourceOfIncome" PropertyName="SourceOfIncome" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="EducationalQualification" PropertyName="EducationalQualification" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="LastYearIncome" PropertyName="LastYearIncome" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="Last2ndYearIncome" PropertyName="Last2ndYearIncome" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails1" PropertyName="PrevPolicyDetails1" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails2" PropertyName="PrevPolicyDetails2" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails3" PropertyName="PrevPolicyDetails3" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails4" PropertyName="PrevPolicyDetails4" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails5" PropertyName="PrevPolicyDetails5" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails6" PropertyName="PrevPolicyDetails6" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails7" PropertyName="PrevPolicyDetails7" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails8" PropertyName="PrevPolicyDetails8" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails9" PropertyName="PrevPolicyDetails9" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="PrevPolicyDetails10" PropertyName="PrevPolicyDetails10" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="MaritalStatu" PropertyName="MaritalStatu" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="FathersAge" PropertyName="FathersAge" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="MothersAge" PropertyName="MothersAge" Index="34" IsNewNode="True" />
+        <ColumnInfo Id="AllBrothersAge" PropertyName="AllBrothersAge" Index="35" IsNewNode="True" />
+        <ColumnInfo Id="AllSistersAge" PropertyName="AllSistersAge" Index="36" IsNewNode="True" />
+        <ColumnInfo Id="SpouseAge" PropertyName="SpouseAge" Index="37" IsNewNode="True" />
+        <ColumnInfo Id="AllDaughtersAge" PropertyName="AllDaughtersAge" Index="38" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="39" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="40" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="41" IsNewNode="True" />
+        <ColumnInfo Id="NomineeDateOfBirth" PropertyName="NomineeDateOfBirth" Index="42" IsNewNode="True" />
+        <ColumnInfo Id="NomineeRelation" PropertyName="NomineeRelation" Index="43" IsNewNode="True" />
+        <ColumnInfo Id="BankDetails" PropertyName="BankDetails" Index="44" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="45" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="46" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="47" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="48" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="49" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="50" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyLICPolices" ClassName="GatiCarRental.Module.BusinessObjects.Policy" AllowEdit="True" Caption="My LIC Policies" Criteria="[CreatedBy.Oid] = CurrentUserID()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PolicyNumber" PropertyName="PolicyNumber" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Agents" PropertyName="Agents" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Plan" PropertyName="Plan" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Term" PropertyName="Term" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="PPT" PropertyName="PPT" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="StartDate" PropertyName="StartDate" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MaturityDate" PropertyName="MaturityDate" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="FUPDate" PropertyName="FUPDate" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SumAssured" PropertyName="SumAssured" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="PremiumAmount" PropertyName="PremiumAmount" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Relation" PropertyName="Relation" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="LICPolicyStatus" PropertyName="LICPolicyStatus" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="PaymentMode" PropertyName="PaymentMode" Index="14" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyLoanApplications" ClassName="GatiCarRental.Module.BusinessObjects.Loan" Caption="My Loan Applications" Criteria="[CreatedBy.Oid] = CurrentUserID()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="FullAddress" PropertyName="FullAddress" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="ApplicantNames" PropertyName="ApplicantNames" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="CoApplicantNames" PropertyName="CoApplicantNames" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="CoDateOfBirth" PropertyName="CoDateOfBirth" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="MaritalStatu" PropertyName="MaritalStatu" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="CoMaritalStatus" PropertyName="CoMaritalStatus" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="Phone" PropertyName="Phone" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="CoPhone" PropertyName="CoPhone" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="CoEmail" PropertyName="CoEmail" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="ApplicantRelation" PropertyName="ApplicantRelation" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="OCCUPATIONs" PropertyName="OCCUPATIONs" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="CoOCCUPATION" PropertyName="CoOCCUPATION" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="YearlyIncome" PropertyName="YearlyIncome" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="CoYearlyIncome" PropertyName="CoYearlyIncome" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="PrevInvestment" PropertyName="PrevInvestment" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="CoPanNo" PropertyName="CoPanNo" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="LoanCategory" PropertyName="LoanCategory" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="BTREQUIRED" PropertyName="BTREQUIRED" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="ExpectedLoanAmt" PropertyName="ExpectedLoanAmt" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="29" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyMediclaimApplication" ClassName="GatiCarRental.Module.BusinessObjects.Mediclaim" Caption="My Mediclaim Application" Criteria="[CreatedBy.Oid] = CurrentUserId()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="FullAddress" PropertyName="FullAddress" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DocumentNo" PropertyName="DocumentNo" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="DocumentDate" PropertyName="DocumentDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="AssignTo" PropertyName="AssignTo" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Phone" PropertyName="Phone" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="PinCode" PropertyName="PinCode" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="CoverTypes" PropertyName="CoverTypes" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="TotalMembers" PropertyName="TotalMembers" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="MembersAge" PropertyName="MembersAge" Index="9" IsNewNode="True" />
+        <ColumnInfo Id="SumInsured" PropertyName="SumInsured" Index="10" IsNewNode="True" />
+        <ColumnInfo Id="Tenure" PropertyName="Tenure" Index="11" IsNewNode="True" />
+        <ColumnInfo Id="Benefits" PropertyName="Benefits" Index="12" IsNewNode="True" />
+        <ColumnInfo Id="PanNo" PropertyName="PanNo" Index="13" IsNewNode="True" />
+        <ColumnInfo Id="DateOfBirth" PropertyName="DateOfBirth" Index="14" IsNewNode="True" />
+        <ColumnInfo Id="Height" PropertyName="Height" Index="15" IsNewNode="True" />
+        <ColumnInfo Id="Weight" PropertyName="Weight" Index="16" IsNewNode="True" />
+        <ColumnInfo Id="RegisterUnderGSTAct" PropertyName="RegisterUnderGSTAct" Index="17" IsNewNode="True" />
+        <ColumnInfo Id="GSTINNo" PropertyName="GSTINNo" Index="18" IsNewNode="True" />
+        <ColumnInfo Id="GSTRegistrationDate" PropertyName="GSTRegistrationDate" Index="19" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="20" IsNewNode="True" />
+        <ColumnInfo Id="NomineeDateOfBirth" PropertyName="NomineeDateOfBirth" Index="21" IsNewNode="True" />
+        <ColumnInfo Id="NomineeRelation" PropertyName="NomineeRelation" Index="22" IsNewNode="True" />
+        <ColumnInfo Id="HasAnyPED" PropertyName="HasAnyPED" Index="23" IsNewNode="True" />
+        <ColumnInfo Id="ClaimCurrentorprevInsurer" PropertyName="ClaimCurrentorprevInsurer" Index="24" IsNewNode="True" />
+        <ColumnInfo Id="DeclinedCancelledOrChargedHigherPremium" PropertyName="DeclinedCancelledOrChargedHigherPremium" Index="25" IsNewNode="True" />
+        <ColumnInfo Id="OtherPolicy" PropertyName="OtherPolicy" Index="26" IsNewNode="True" />
+        <ColumnInfo Id="WishToAddCrCard" PropertyName="WishToAddCrCard" Index="27" IsNewNode="True" />
+        <ColumnInfo Id="PaymentMode" PropertyName="PaymentMode" Index="28" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Index="29" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="30" IsNewNode="True" />
+        <ColumnInfo Id="CreatedByName" PropertyName="CreatedByName" Index="31" IsNewNode="True" />
+        <ColumnInfo Id="CreatedOn" PropertyName="CreatedOn" Index="32" IsNewNode="True" />
+        <ColumnInfo Id="DateCompleted" PropertyName="DateCompleted" Index="33" IsNewNode="True" />
+        <ColumnInfo Id="Company" PropertyName="Company" Index="34" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="MyMediclaimPolicy_ListView" ClassName="GatiCarRental.Module.BusinessObjects.MediclaimPolicy" Caption="My Mediclaim Policies" Criteria="[CreatedBy.Oid] = CurrentUserID()" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PolicyNo" PropertyName="PolicyNo" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="StartDate" PropertyName="StartDate" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="EndDate" PropertyName="EndDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Customer" PropertyName="Customer" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Nominee" PropertyName="Nominee" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="InsuranceCompany" PropertyName="InsuranceCompany" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="MediclaimPlan" PropertyName="MediclaimPlan" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="PolicyType" PropertyName="PolicyType" Index="7" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Plan_DetailView" Caption="LIC Plan" />
+    <ListView Id="Plan_ListView" Caption="LIC Plan" />
+    <ListView Id="Plan_LookupListView" Caption="LIC Plan" />
+    <ListView Id="Plan_Policies_ListView" Caption="LIC Policy" />
+    <DetailView Id="Policy_DetailView" Caption="LIC Policy">
+      <Items>
+        <PropertyEditor Id="Agents" LookupEditorMode="AllItemsWithSearch" />
+        <PropertyEditor Id="Customer" LookupEditorMode="AllItemsWithSearch" />
+        <PropertyEditor Id="FUPDate" Caption="FUP Date" />
+        <PropertyEditor Id="LICPolicyStatus" Caption="LIC Policy Status" />
+        <PropertyEditor Id="Nominee" LookupEditorMode="AllItemsWithSearch" />
+      </Items>
+    </DetailView>
+    <ListView Id="Policy_ListView" AllowEdit="True" Caption="LIC Policy" />
+    <ListView Id="Policy_LookupListView" Caption="LIC Policy" />
+    <DetailView Id="Receipt_DetailView" Caption="LIC Payment Receipt">
+      <Items>
+        <PropertyEditor Id="Amount" EditMask="n2" DisplayFormat="{0:n2}" />
+        <PropertyEditor Id="CashBank" Caption="Payment Mode" />
+        <PropertyEditor Id="Customer" LookupEditorMode="AllItemsWithSearch" />
+      </Items>
+    </DetailView>
+    <ListView Id="Receipt_ListView" Caption="LIC Payment Receipt" />
+    <ListView Id="Receipt_LookupListView" Caption="LIC Payment Receipt" />
+    <ListView Id="Task_Collaborators_ListView">
+      <Columns>
+        <ColumnInfo Id="AadharNo" Removed="True" />
+        <ColumnInfo Id="AccountNo" Removed="True" />
+        <ColumnInfo Id="Address1" Removed="True" />
+        <ColumnInfo Id="Address2" Removed="True" />
+        <ColumnInfo Id="BankName" Removed="True" />
+        <ColumnInfo Id="BranchName" Removed="True" />
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" Removed="True" />
+        <ColumnInfo Id="Company" Removed="True" />
+        <ColumnInfo Id="Country" Removed="True" />
+        <ColumnInfo Id="DateOfAppointment" Removed="True" />
+        <ColumnInfo Id="DateOfBirth" Removed="True" />
+        <ColumnInfo Id="FathersName" Removed="True" />
+        <ColumnInfo Id="IFSCCode" Removed="True" />
+        <ColumnInfo Id="IsActive" Removed="True" />
+        <ColumnInfo Id="MothersName" Removed="True" />
+        <ColumnInfo Id="Occupation" Removed="True" />
+        <ColumnInfo Id="PanNo" Removed="True" />
+        <ColumnInfo Id="PinCode" Removed="True" />
+        <ColumnInfo Id="PlaceOfBirth" Removed="True" />
+        <ColumnInfo Id="Qualification" Removed="True" />
+        <ColumnInfo Id="SpouseName" Removed="True" />
+        <ColumnInfo Id="State" Removed="True" />
+        <ColumnInfo Id="Website" Removed="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Task_DetailView">
+      <Items>
+        <PropertyEditor Id="Activities" Index="0" />
+        <PropertyEditor Id="AssignTo" LookupEditorMode="AllItemsWithSearch" LookupProperty="FirstName" Index="1" />
+        <PropertyEditor Id="Attachments" Index="2" />
+        <PropertyEditor Id="Collaborators" LookupEditorMode="AllItemsWithSearch" LookupProperty="Object.FirstName" Index="3" />
+        <PropertyEditor Id="Company" Index="4" />
+        <PropertyEditor Id="CreatedBy" Index="5" />
+        <PropertyEditor Id="CreatedOn" Index="6" />
+        <PropertyEditor Id="Customer" LookupEditorMode="AllItemsWithSearch" Index="7" />
+        <PropertyEditor Id="DateCompleted" Index="8" />
+        <PropertyEditor Id="Description" Index="9" />
+        <PropertyEditor Id="DocumentDate" Index="10" />
+        <PropertyEditor Id="DocumentNo" Index="11" />
+        <PropertyEditor Id="Oid" Index="12" />
+        <PropertyEditor Id="Status" Index="13" />
+        <PropertyEditor Id="TaskCategory" LookupEditorMode="AllItems" Index="14" />
+        <PropertyEditor Id="TaskSubCategory" Index="15" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="TaskComments" Index="0" />
+            <LayoutGroup Id="Collaborators" Index="1" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Task_ListView">
+      <Filters>
+        <Filter Id="All Tasks" Criteria="" IsNewNode="True" />
+        <Filter Id="MyTasks" Caption="My Task" Criteria="[AssignTo.Oid] = CurrentUserId() Or [CreatedBy.Oid] = CurrentUserId()" IsNewNode="True" />
+      </Filters>
+    </ListView>
+  </Views>
+</Application>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Masters">
+        <Items Id="Items">
+          <Item Id="Driver_ListView" ViewId="Driver_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Views Id="Views">
+    <DetailView Id="InvoiceDetail_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="InvoiceDetail">
+              <LayoutGroup Id="InvoiceDetail_col1">
+                <LayoutItem Id="SGSTAmount" Index="7" RelativeSize="60.127591706539071" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="InvoiceDetail_col2">
+                <LayoutItem Id="SGSTRate" ViewItem="SGSTRate" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

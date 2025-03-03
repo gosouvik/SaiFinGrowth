@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Employee_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="UserName" Index="3" />
+        <ColumnInfo Id="LastName" PropertyName="LastName" Index="1" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

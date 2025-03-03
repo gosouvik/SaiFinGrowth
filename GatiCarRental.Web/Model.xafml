@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Sai Fin Growth" Company="Sai Fin Growth Pvt Ltd">
+  <CreatableItems>
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.BookingOrder" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.CallLogCustomer" ImageName="BO_Phone" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.CallLogEmployee" ImageName="BO_Phone" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.CallLogLead" ImageName="BO_Phone" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Car" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.CarType" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.CashBank" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Category" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Company" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Customer" ImageName="BOCustomer_16x16" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.CustomerFileData" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Discount" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.DocumentNumbering" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.DryInvoice" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.DutySlip" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.InstrumentType" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.InsuranceCompany" ImageName="BO_Contact" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Invoice" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.InvoiceDetail" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.InvoiceRegister" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Lead" ImageName="BO_MyDetails" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.MediclaimPlan" ImageName="Navigation_Item_Report" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.MediclaimPolicy" ImageName="BO_Resume" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Plan" Caption="LIC Plan" ImageName="Navigation_Item_Report" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Policy" Caption="LIC Policy" ImageName="BO_Resume" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Receipt" Caption="LIC Receipt" ImageName="BO_Task" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Response" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.SubCategory" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.Task" ImageName="DevAV\Task_16x16" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.TaskCategory" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.TaskComment" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.TaskFileData" Removed="True" />
+    <CreatableItem ClassName="GatiCarRental.Module.BusinessObjects.TDS" Removed="True" />
+  </CreatableItems>
+  <NavigationItems>
+    <Items>
+      <Item Id="Entries">
+        <Items>
+          <Item Id="CallLogLead_ListView" ObjectKey="" Index="0" ImageName="Glyph_Phone" ViewId="CallLogLead_ListView" Removed="True" />
+          <Item Id="CallManagement" Index="0" Caption="Call Management" ImageName="Electronics_Headphone" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="CallLogLead_ListView" ViewId="CallLogLead_ListView" Index="0" ObjectKey="" ImageName="BO_Phone" IsNewNode="True" />
+              <Item Id="CallLogCustomer_ListView" ViewId="CallLogCustomer_ListView" Index="4" ObjectKey="" ImageName="BO_Phone" IsNewNode="True" />
+              <Item Id="CallLogEmployee_ListView" Index="5" ObjectKey="" ViewId="CallLogEmployee_ListView" ImageName="BO_Phone" IsNewNode="True" />
+              <Item Id="MyCallLogCustomer" ViewId="MyCallLogCustomer" IsNewNode="True" />
+              <Item Id="MyCallLogEmployee" ViewId="MyCallLogEmployee_ListView" IsNewNode="True" />
+              <Item Id="MyCallLogLead" ViewId="MyCallLogLead_ListView" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="TaskManagement" Caption="Task Management" Index="1" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="Employee_MyTask" ViewId="Employee_MyTask_ListView" Caption="My Task" ImageName="BO_Task" IsNewNode="True" />
+              <Item Id="GICTasks" ViewId="GIC Tasks" IsNewNode="True" />
+              <Item Id="LICTasks" ViewId="LICTasks" IsNewNode="True" />
+              <Item Id="LoanTasks" ViewId="LoanTasks" IsNewNode="True" />
+              <Item Id="MutualFundTasks" ViewId="MutualFundTasks" IsNewNode="True" />
+              <Item Id="Task_ListView" ViewId="Task_ListView" ObjectKey="" ImageName="BO_Task" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="Policy_ListView" ObjectKey="" ImageName="BO_Contract" Index="2" ViewId="Policy_ListView" Removed="True" />
+          <Item Id="BookingOrder_ListView" Visible="False" Removed="True" />
+          <Item Id="CallLogCustomer_ListView" ObjectKey="" ImageName="BO_Phone" ViewId="CallLogCustomer_ListView" Removed="True" />
+          <Item Id="CallLogEmployee_ListView" ImageName="Electronics_Headphone" Removed="True" />
+          <Item Id="Discount_ListView" Visible="False" Removed="True" />
+          <Item Id="DryInvoice_ListView" Visible="False" Removed="True" />
+          <Item Id="DutySlip_ListView" Visible="False" Removed="True" />
+          <Item Id="Employee_MyTask" Removed="True" />
+          <Item Id="GICTasks" Removed="True" />
+          <Item Id="Invoice_ListView" Visible="False" Removed="True" />
+          <Item Id="LICApplication_ListView" Removed="True" />
+          <Item Id="LICApplications" Removed="True" />
+          <Item Id="Loan_ListView" Removed="True" />
+          <Item Id="LoanApplications" Removed="True" />
+          <Item Id="Mediclaim_ListView" Removed="True" />
+          <Item Id="MediclaimApplications" Removed="True" />
+          <Item Id="MediclaimPolicies" Removed="True" />
+          <Item Id="MediclaimPolicy_ListView" ImageName="BO_Contact" Removed="True" />
+          <Item Id="MutualFundTasks" Removed="True" />
+          <Item Id="MyCallLogCustomer" Removed="True" />
+          <Item Id="MyCallLogEmployee" Removed="True" />
+          <Item Id="MyCallLogLead" Removed="True" />
+          <Item Id="MyLICApplication" Removed="True" />
+          <Item Id="MyLicPolicies" Removed="True" />
+          <Item Id="MyLoanApplications" Removed="True" />
+          <Item Id="MyMediclaimApplication" Removed="True" />
+          <Item Id="MyMediclaimPolicies" Removed="True" />
+          <Item Id="Receipt_ListView" Visible="False" Removed="True" />
+          <Item Id="SchemeManagement" Caption="Investments" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="LICApplication_ListView" ViewId="LICApplication_ListView" ObjectKey="" Caption="LIC Form Application" Index="0" IsNewNode="True" />
+              <Item Id="Policy_ListView" ViewId="Policy_ListView" Index="1" ObjectKey="" ImageName="BO_Contract" IsNewNode="True" />
+              <Item Id="Loan_ListView" ViewId="Loan_ListView" ObjectKey="" Index="2" IsNewNode="True" />
+              <Item Id="Mediclaim_ListView" ViewId="Mediclaim_ListView" ObjectKey="" Index="3" IsNewNode="True" />
+              <Item Id="MediclaimPolicy_ListView" ViewId="MediclaimPolicy_ListView" ObjectKey="" ImageName="BO_Contact" Index="4" IsNewNode="True" />
+              <Item Id="MyLICApplication" Caption="My LIC Application" ViewId="MyLICApplication" Index="5" IsNewNode="True" />
+              <Item Id="MyLoanApplications" ViewId="MyLoanApplications" Index="6" IsNewNode="True" />
+              <Item Id="MyMediclaimApplication" Caption="My Mediclaim Application" ViewId="MyMediclaimApplication" Index="7" IsNewNode="True" />
+              <Item Id="MyLicPolicies" ViewId="MyLICPolices" Index="8" IsNewNode="True" />
+              <Item Id="LIC Policies " ViewId="LICPolicies" IsNewNode="True" />
+              <Item Id="LICApplications" ViewId="LICApplications" IsNewNode="True" />
+              <Item Id="LoanApplications" ViewId="LoanApplication " IsNewNode="True" />
+              <Item Id="MediclaimApplications" ViewId="MediclaimApplications" IsNewNode="True" />
+              <Item Id="MediclaimPolicies" ViewId="MediclaimPolicies" IsNewNode="True" />
+              <Item Id="MyMediclaimPolicies" ViewId="MyMediclaimPolicy_ListView" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="Task_ListView" Removed="True" />
+          <Item Id="TDS_ListView" Visible="False" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="Masters">
+        <Items>
+          <Item Id="Employee_ListView" Caption="Employee/Agent" ObjectKey="" ViewId="Employee_ListView" Index="0" IsNewNode="True" />
+          <Item Id="Customer_ListView" Index="1" />
+          <Item Id="Lead_ListView" ObjectKey="" Index="2" ImageName="BO_Lead" ViewId="Lead_ListView" IsNewNode="True" />
+          <Item Id="Category_ListView" ObjectKey="" Index="3" ImageName="BO_Category" ViewId="Category_ListView" Removed="True" />
+          <Item Id="SubCategory_ListView" ObjectKey="" Index="4" ImageName="ModelEditor_Categorized" ViewId="SubCategory_ListView" Removed="True" />
+          <Item Id="Plan_ListView" ObjectKey="" Index="5" ImageName="BO_Category" ViewId="Plan_ListView" IsNewNode="True" />
+          <Item Id="MediclaimPlan_ListView" ImageName="BO_Category" />
+          <Item Id="Car_ListView" Visible="False" Removed="True" />
+          <Item Id="CarType_ListView" Visible="False" Removed="True" />
+          <Item Id="CashBank_ListView" Visible="False" Removed="True" />
+          <Item Id="Driver_ListView" Visible="False" Removed="True" />
+          <Item Id="InstrumentType_ListView" Visible="False" Removed="True" />
+          <Item Id="MyDetails" ViewId="PermissionPolicyUser_DetailView" ObjectKey="@CurrentUserID" Caption="My Details" ImageName="BO_MyDetails" IsNewNode="True" />
+          <Item Id="MyLeads" Caption="My Leads" ImageName="BO_Lead" ViewId="Employee_MyLeads_ListView" IsNewNode="True" />
+          <Item Id="Response_ListView" ImageName="ListBullets" Removed="True" />
+          <Item Id="TaskCategory_ListView" ImageName="BO_Category" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="Default" ImageName="ModelEditor_Settings">
+        <Items>
+          <Item Id="Category_ListView" ViewId="Category_ListView" Index="0" ObjectKey="" ImageName="BO_Category" IsNewNode="True" />
+          <Item Id="SubCategory_ListView" ViewId="SubCategory_ListView" Index="1" ObjectKey="" ImageName="ModelEditor_Categorized" IsNewNode="True" />
+          <Item Id="TaskCategory_ListView" ViewId="TaskCategory_ListView" ObjectKey="" ImageName="BO_Category" Index="2" IsNewNode="True" />
+          <Item Id="Response_ListView" ViewId="Response_ListView" ObjectKey="" ImageName="BO_Category_32x32" Index="3" IsNewNode="True" />
+          <Item Id="InsuranceCompany_ListView" Index="4" ImageName="BO_Task_32x32" />
+          <Item Id="Company_ListView" Visible="False" Index="5" />
+          <Item Id="CustomerFileData_ListView" Visible="False" Index="6" Removed="True" />
+          <Item Id="DocumentNumbering_ListView" Index="7" ImageName="ChartXAxisSettings_32x32" />
+          <Item Id="Employee_ListView" Removed="True" />
+          <Item Id="InvoiceRegister_ListView" Visible="False" Removed="True" />
+          <Item Id="LicPolicyFileData_ListView" Removed="True" />
+          <Item Id="MediclaimPolicyFileData_ListView" Removed="True" />
+          <Item Id="MediclaimReceipt_ListView" Removed="True" />
+          <Item Id="MyDetails" Removed="True" />
+          <Item Id="PermissionPolicyUser_ListView" Visible="False" />
+        </Items>
+      </Item>
+      <Item Id="Reports" ImageName="BO_Report">
+        <Items>
+          <Item Id="CustomerStatement" Visible="False" />
+          <Item Id="CustomerBalance" Visible="False" />
+          <Item Id="TDSRegister" Visible="False" />
+          <Item Id="DiscountRegister" Visible="False" />
+          <Item Id="ReceiptRegister" Visible="False" />
+          <Item Id="GSTRegister" Visible="False" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="24.1.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="24.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="Employee_LookupListView">
+      <Columns>
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Phone" PropertyName="Phone1" Caption="Phone" Index="2" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Task_TaskComments_ListView">
+      <Columns>
+        <ColumnInfo Id="DescriptionNew" PropertyName="Description" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" Index="2" />
+        <ColumnInfo Id="CreatedOn" Index="3" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

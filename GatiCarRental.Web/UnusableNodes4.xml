@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Entries">
+        <Items Id="Items">
+          <Item Id="LIC Policies " Removed="True" />
+          <Item Id="LICTasks" Removed="True" />
+          <Item Id="LoanTasks" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>
