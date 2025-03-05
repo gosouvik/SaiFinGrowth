@@ -22,18 +22,18 @@ namespace GatiCarRental.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class Plan : BaseObject
+    public class GICPlan : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public Plan(Session session)
+        public GICPlan(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            _PlanID = (Session.Evaluate<Plan>(CriteriaOperator.Parse("Max(PlanID)"), CriteriaOperator.Parse("")) == DBNull.Value ? 0 : Convert.ToInt32(Session.Evaluate<Plan>(CriteriaOperator.Parse("Max(PlanID)"), CriteriaOperator.Parse("")))) + 1;
+            _GICPlanID = (Session.Evaluate<GICPlan>(CriteriaOperator.Parse("Max(GICPlanID)"), CriteriaOperator.Parse("")) == DBNull.Value ? 0 : Convert.ToInt32(Session.Evaluate<GICPlan>(CriteriaOperator.Parse("Max(GICPlanID)"), CriteriaOperator.Parse("")))) + 1;
 
             XPCollection<Company> comps = new XPCollection<Company>(Session);
             comps.Criteria = CriteriaOperator.Parse("Active=?", true);
@@ -44,21 +44,21 @@ namespace GatiCarRental.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        [Persistent("PlanID")] // this line for read-only columns mapping
-        private int _PlanID;
+        [Persistent("GICPlanID")] // this line for read-only columns mapping
+        private int _GICPlanID;
         ////[RuleRequiredField] // Validation for Required
         [RuleUniqueValue] // Validation for unique value
         [Browsable(false)]
-        [PersistentAlias("_PlanID")] // This line for read-only column mapping
-        public int PlanID
+        [PersistentAlias("_GICPlanID")] // This line for read-only column mapping
+        public int GICPlanID
         {
-            get { return _PlanID; }
+            get { return _GICPlanID; }
         }
 
         string fName;
         [Size(50)]
         [RuleUniqueValue] // Validation for unique value
-        [RuleRequiredField("RuleRequiredField for Plan.Name", DefaultContexts.Save, "A Plan Name must be specified")]
+        [RuleRequiredField("RuleRequiredField for GICPlan.Name", DefaultContexts.Save, "A GICPlan Name must be specified")]
         public string Name
         {
             get { return fName; }
@@ -68,7 +68,7 @@ namespace GatiCarRental.Module.BusinessObjects
         string fTableName;
         [Size(50)]
         [RuleUniqueValue] // Validation for unique value
-        //[RuleRequiredField("RuleRequiredField for Plan.TableName", DefaultContexts.Save, "A Plan Name must be specified")]
+        [RuleRequiredField("RuleRequiredField for GICPlan.TableName", DefaultContexts.Save, "A GICPlan Name must be specified")]
         public string TableName
         {
             get { return fTableName; }
@@ -94,18 +94,32 @@ namespace GatiCarRental.Module.BusinessObjects
             set { SetPropertyValue<Company>("Company", ref fCompany, value); }
         }
 
+        //[Association]
+        //[VisibleInDetailView(false)]
+        //public XPCollection<Policy> Policies
+        //{
+        //    get { return GetCollection<Policy>(nameof(Policies)); }
+        //}
+        //[Association]
+        //[VisibleInDetailView(false)]
+        //public XPCollection<LICApplication> LICApplications
+        //{
+        //    get { return GetCollection<LICApplication>(nameof(LICApplications)); }
+        //}
+
+        private InsuranceCompany fInsuranceCompany;
+        [RuleRequiredField("RuleRequiredField for GICPlan.InsuranceCompany", DefaultContexts.Save,
+        "Insurance Company must be specified")]
         [Association]
-        [VisibleInDetailView(false)]
-        public XPCollection<Policy> Policies
+        public InsuranceCompany InsuranceCompany
         {
-            get { return GetCollection<Policy>(nameof(Policies)); }
+            get { return fInsuranceCompany; }
+            set
+            {
+                SetPropertyValue(nameof(InsuranceCompany), ref fInsuranceCompany, value);
+            }
         }
-        [Association]
-        [VisibleInDetailView(false)]
-        public XPCollection<LICApplication> LICApplications
-        {
-            get { return GetCollection<LICApplication>(nameof(LICApplications)); }
-        }
+
         protected override void OnDeleting()
         {
             base.OnDeleting();

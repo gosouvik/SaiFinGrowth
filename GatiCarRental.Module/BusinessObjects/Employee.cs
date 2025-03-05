@@ -37,6 +37,8 @@ namespace GatiCarRental.Module.BusinessObjects
 
             Gender = GenderList.Male;
             TypeOfEmployee = EmployeeType.Associates;
+            Qualification = Qualification.Class10;
+            Occupation = Occupation.Business;
             //PermissionPolicyUser puser;
             //puser = Session.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
             //Guid employeeid = puser.Oid;
@@ -344,13 +346,20 @@ namespace GatiCarRental.Module.BusinessObjects
             set { SetPropertyValue<string>("PlaceOfBirth", ref fPlaceOfBirth, value); }
         }
 
-        string fOccupation;
-        [Size(200)]
-        public string Occupation
+        //string fOccupation;
+        //[Size(200)]
+        //public string Occupation
+        //{
+        //    get { return fOccupation; }
+        //    set { SetPropertyValue<string>("Occupation", ref fOccupation, value); }
+        //}
+        Occupation fOccupation;
+        public Occupation Occupation
         {
             get { return fOccupation; }
-            set { SetPropertyValue<string>("Occupation", ref fOccupation, value); }
+            set { SetPropertyValue<Occupation>("Occupation", ref fOccupation, value); }
         }
+
 
         string fSalesExperience;
         [Size(255)]
@@ -361,14 +370,20 @@ namespace GatiCarRental.Module.BusinessObjects
             set { SetPropertyValue<string>("SalesExperience", ref fSalesExperience, value); }
         }
 
-        string fQualification;
-        [Size(200)]
-        public string Qualification
+        //string fQualification;
+        //[Size(200)]
+        //public string Qualification
+        //{
+        //    get { return fQualification; }
+        //    set { SetPropertyValue<string>("Qualification", ref fQualification, value); }
+        //}
+
+        Qualification fQualification;
+        public Qualification Qualification
         {
             get { return fQualification; }
-            set { SetPropertyValue<string>("Qualification", ref fQualification, value); }
+            set { SetPropertyValue<Qualification>("Qualification", ref fQualification, value); }
         }
-
         string fPanNo;
         [Size(200)]
         public string PanNo
@@ -474,6 +489,14 @@ namespace GatiCarRental.Module.BusinessObjects
             get { return GetCollection<LICApplication>(nameof(MyLICApplication)); }
         }
 
+        [Association("GICApplication-Employee")]
+        //[VisibleInDetailView(false)]
+        public XPCollection<GICApplication> MyGICApplication
+        {
+            get { return GetCollection<GICApplication>(nameof(MyGICApplication)); }
+        }
+
+
         [Association("Mediclaim-Employee")]
         //[VisibleInDetailView(false)]
         public XPCollection<Mediclaim> MyMediclaim
@@ -556,5 +579,25 @@ namespace GatiCarRental.Module.BusinessObjects
         Loan = 15,
         MutualFund = 20,
         Others =30
+    }
+    public enum Qualification
+    {
+        Below_7th = 0,
+        Class_8th_to_9th = 5,
+        Class10 = 10,
+        HS = 15,
+        Graduate = 20,
+        PostGraduate=25,
+        Others = 30
+    }
+    public enum Occupation
+    {
+        Salaried = 0, 
+        Business = 5,
+        FinancialAdvisor=10,
+        SelfEmployed=15,
+        Retired=20,
+        Profession_PleaseSpecify=25,
+        Others=30
     }
 }

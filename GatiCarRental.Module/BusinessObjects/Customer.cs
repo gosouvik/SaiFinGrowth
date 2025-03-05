@@ -468,6 +468,12 @@ namespace GatiCarRental.Module.BusinessObjects
         {
             get { return GetCollection<LICApplication>(nameof(LICApplications)); }
         }
+        [Association("GICApplication-Customer")]
+        //[VisibleInDetailView(false)]
+        public XPCollection<GICApplication> GICApplications
+        {
+            get { return GetCollection<GICApplication>(nameof(GICApplications)); }
+        }
 
         [Association("Mediclaim-Customer")]
         //[VisibleInDetailView(false)]

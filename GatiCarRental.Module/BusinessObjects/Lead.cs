@@ -211,6 +211,21 @@ namespace GatiCarRental.Module.BusinessObjects
             }
         }
 
+        string fReasonOfCreateLead;
+        [Size(500)]
+        public string ReasonOfCreateLead
+        {
+            get { return fReasonOfCreateLead; }
+            set { SetPropertyValue<string>("REASON OF CREATE LEAD ", ref fReasonOfCreateLead, value); }
+        }
+        string fQUERYOFLead;
+        [Size(500)]
+        public string QueryLead
+        {
+            get { return fQUERYOFLead; }
+            set { SetPropertyValue<string>("QUERY OF LEAD ", ref fQUERYOFLead, value); }
+        }
+
         private PermissionPolicyUser fCreatedBy;
         //[Appearance("AgentPolicyCond", Enabled = false, Criteria = "@this.Agents.TypeOfEmployee='Agent'", Context = "DetailView")]
         [ModelDefault(nameof(IModelCommonMemberViewItem.AllowEdit), "False")]
