@@ -75,6 +75,12 @@ namespace GatiCarRental.Module.BusinessObjects
             get { return GetCollection<MediclaimPlan>(nameof(Plans)); }
         }
 
+        [Association]
+        public XPCollection<GICPlan> GICPlans
+        {
+            get { return GetCollection<GICPlan>(nameof(GICPlans)); }
+        }
+
         protected override void OnDeleting()
         {
             base.OnDeleting();

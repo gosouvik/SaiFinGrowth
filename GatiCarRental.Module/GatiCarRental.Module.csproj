@@ -150,6 +150,9 @@
     <Compile Include="BusinessObjects\CallLogEmployee.cs" />
     <Compile Include="BusinessObjects\FileType.cs" />
     <Compile Include="BusinessObjects\EmployeeFileData.cs" />
+    <Compile Include="BusinessObjects\GICApplication.cs" />
+    <Compile Include="BusinessObjects\GICApplicationFileData .cs" />
+    <Compile Include="BusinessObjects\GICPlan .cs" />
     <Compile Include="BusinessObjects\LICApplication.cs" />
     <Compile Include="BusinessObjects\LICApplicationFileData.cs" />
     <Compile Include="BusinessObjects\LicPolicyFileData.cs" />

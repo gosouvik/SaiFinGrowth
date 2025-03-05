@@ -136,6 +136,7 @@ namespace GatiCarRental.Module.BusinessObjects
             get { return fTaskCategory; } 
             set
             {
+                
                 SetPropertyValue(nameof(TaskCategory), ref fTaskCategory, value);
                 RefreshAvailableTaskSubCategory();
             }
@@ -182,6 +183,7 @@ namespace GatiCarRental.Module.BusinessObjects
             }
             // Set null for the Collection property to allow an end-user 
             //to set a new value from the refreshed data source
+            if (this.IsNew == true )
             TaskSubCategory = null;
         }
 

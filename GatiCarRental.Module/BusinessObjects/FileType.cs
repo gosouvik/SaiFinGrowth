@@ -146,6 +146,13 @@ namespace GatiCarRental.Module.BusinessObjects
         {
             get { return GetCollection<LoanFileData>(nameof(Loans)); }
         }
+
+        [Association]
+        [VisibleInDetailView(false)]
+        public XPCollection<GICApplicationFileData> GICApplications
+        {
+            get { return GetCollection<GICApplicationFileData>(nameof(GICApplications)); }
+        }
         protected override void OnDeleting()
         {
             base.OnDeleting();

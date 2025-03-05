@@ -135,7 +135,8 @@ namespace GatiCarRental.Module.BusinessObjects
         MoneyMediclaimReceipt = 30,
         LICApplication = 35,
         Mediclaim=40 ,     
-        Loan=45  
+        Loan=45,
+        GICApplication=50
 
     }
 
